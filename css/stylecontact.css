@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+html,
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dt,
+dd,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: black;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans";
+    /* sans-serif dnp-shuei-gothic-gin-std Minion Variable Concept; */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    border: none;
+}
+
+body {
+    max-width: 1900px;
+    margin: 0 auto;
+    background-color: #25716263;
+}
+
+/* コンタクト */
+.contact {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    /* background-color: white;
+    opacity: 0.1;
+    border-radius: 40px; */
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin: 120px 0 56px 0;
+    font-size: 76px;
+}
+
+.contact p {
+    text-align: center;
+    margin-bottom: 56px;
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+label {
+    width: 100%;
+    font-size: 22px;
+    padding-right: 20px;
+}
+
+/* .contact dl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.content dt {
+    font-size: 22px;
+}
+
+.contact dd {
+    width: 700px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    font-size: 22px;
+    background-color: rgb(93, 102, 113);
+} */
