@@ -15,8 +15,9 @@ li {
     padding: 0;
     line-height: 1;
     color: white;
-    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
-        "Hiragino Kaku Gothic ProN", "Hiragino Sans";
+    font-family: "dnp-shuei-gothic-kin-std", "游ゴシック体", YuGothic,
+        "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans";
     /* sans-serif dnp-shuei-gothic-gin-std Minion Variable Concept; */
 }
 
@@ -116,6 +117,8 @@ header {
     margin-top: 38px;
     font-size: 156px;
     border-bottom: solid #1b1464;
+    font-family: "minion-pro", serif;
+    font-weight: 700;
 }
 
 .main {
