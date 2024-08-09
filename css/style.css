@@ -15,9 +15,10 @@ li {
     padding: 0;
     line-height: 1;
     color: white;
-    font-family: "dnp-shuei-gothic-kin-std", "游ゴシック体", YuGothic,
-        "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans";
+    font-family: "dnp-shuei-gothic-kin-std", "minion-pro";
+    /* "游ゴシック体",
+        YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans"; */
     /* sans-serif dnp-shuei-gothic-gin-std Minion Variable Concept; */
 }
 
@@ -47,9 +48,12 @@ body {
     height: 100vh;
     background: linear-gradient(
         45deg,
-        #3bade3,
+        #58ccef,
         #9844b7,
-        #44ea76
+        #f2c076,
+        #1b1464,
+        #fff25b,
+        #e17996
     ); /*グラデーションを定義*/
     background-size: 200% 200%; /*サイズを大きくひきのばす*/
     animation: bggradient 20s ease infinite;
@@ -102,7 +106,60 @@ header {
 
 .pc_nav {
     display: flex;
+    flex-direction: row;
     justify-content: end;
+    align-items: center;
+}
+
+.toggle_input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.toggle_label {
+    width: 75px;
+    height: 35px;
+    background: #ccc;
+    position: relative;
+    display: inline-block;
+    border-radius: 40px;
+    transition: 0.4s;
+    box-sizing: border-box;
+}
+
+.toggle_label:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.4s;
+}
+
+.toggle_input:checked + .toggle_label {
+    background-color: #4bd865;
+}
+
+.toggle_input:checked + .toggle_label:after {
+    left: 40px;
+}
+
+.toggle_button {
+    position: relative;
+    width: 75px;
+    height: 35px;
+    margin: auto;
 }
 
 .main_visual {
@@ -118,7 +175,7 @@ header {
     font-size: 156px;
     border-bottom: solid #1b1464;
     font-family: "minion-pro", serif;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .main {
@@ -283,7 +340,7 @@ header {
     margin: 0 auto;
     text-align: center;
     margin-top: 156px;
-    margin-bottom: 90px;
+    margin-bottom: 80px;
     font-size: 31px;
     letter-spacing: 0.2em;
 }
@@ -311,7 +368,7 @@ small {
     writing-mode: vertical-rl;
 }
 
-nav {
+.footer nav {
     margin: 0 80px 80px 0;
     display: flex;
     flex-direction: column;

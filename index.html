@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./img/">
     <link rel="stylesheet" type="text/css" href="css/5-2.css">
     <title>portfolio</title>
+
     <script>
         (function(d) {
           var config = {
@@ -17,6 +18,7 @@
           h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
         })(document);
       </script>
+
 
 </head>
 
@@ -44,10 +46,10 @@
             <div>
                 DARK MODE
             </div>
-            <button>
-                off
-            </button>
-
+            <div class="toggle_button">
+                <input id="toggle" class="toggle_input" type='checkbox' />
+                <label for="toggle" class="toggle_label"/>
+              </div>
         </nav>
         <div class="main_visual">
             <p class="content">Web design & <br>Cording</p>
@@ -141,7 +143,7 @@
 
     <section class="comtact"><a href="./contact.html"></a>
         <p class="fontslider">Contact Contact</p>
-        <p class="callout">いっしょに「おもしろいもの」作りませんか</p>
+        <p class="callout">いっしょに「おもしろいもの」作りませんか？</p>
         <a href="./contact.html">
             <p class="contactbutton">声をかける</p>
         </a>
@@ -151,9 +153,9 @@
     <footer class="footer">
         <small>&copy;GOTO DESIGN</small>
         <nav>
-            <p>About</p>
-            <p>Works</p>
-            <p>Content</p>
+            <a href="about"><p>About</p></a>
+            <a href="worksallr.html"><p>Works</p></a>
+            <a href="contact.html"><p>Contact</p></a>
         </nav>
     </footer>
 

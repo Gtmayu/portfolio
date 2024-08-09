@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+html,
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dt,
+dd,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: black;
+    font-family: "dnp-shuei-gothic-kin-std", "minion-pro";
+    /* "游ゴシック体",
+        YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans"; */
+    /* sans-serif dnp-shuei-gothic-gin-std Minion Variable Concept; */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    border: none;
+}
+
+body {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 1%;
+    background-color: #25716263;
+}
+
+/* ヘッダー */
+.pc_nav {
+    margin-bottom: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+}
+
+.pc_nav div {
+    font-size: 15px;
+    font-family: "minion-pro", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* トグルボタン */
+.toggle {
+    position: relative;
+    width: 90px;
+    height: 35px;
+    /* margin: 40px 60px; */
+    border-radius: 50px;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+}
+
+.toggle input[type="checkbox"] {
+    display: none;
+}
+
+.toggle span {
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1;
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+}
+
+.toggle span:nth-of-type(1) {
+    right: 5px;
+    color: rgba(0, 0, 0, 0.175);
+}
+
+.toggle span:nth-of-type(2) {
+    left: 7px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.toggle:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    display: block;
+    background: #e9e9eb;
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+}
+
+.toggle:after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    width: 35px;
+    height: 35px;
+    display: block;
+    border-radius: 50px;
+    background: #fff;
+    box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+}
+
+.toggle.checked:before {
+    background: #35c759;
+}
+
+.toggle.checked:after {
+    left: 55px;
+    box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* ハンバーガーメニュー */
+/* Common Css must add */
+svg {
+    height: 40px;
+    position: absolute;
+    width: 40px;
+    cursor: pointer;
+    /*   border: 1px solid black; */
+    background-color: #fff;
+}
+
+.plate {
+    height: 41px;
+    width: 41px;
+}
+.burger {
+    filter: url(#gooeyness);
+}
+.x {
+    transform: scale(0);
+    transition: transform 400ms;
+}
+.line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform-origin: 50%;
+    transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms,
+        transform 500ms 200ms;
+}
+.x .line {
+    stroke-width: 5.5px;
+}
+/* Common Css must add end */
+
+/* First Menu CSS Only */
+.plate1 .line2 {
+    stroke-dasharray: 40 200;
+    stroke-dashoffset: 0px;
+}
+.plate1 .line3 {
+    stroke-dasharray: 40 179;
+    stroke-dashoffset: 0px;
+}
+.active .line {
+    transition: stroke-dasharray 500ms, stroke-dashoffset 500ms, transform 500ms;
+}
+.active.plate1 .line1 {
+    transform: scale(0, 1);
+    transition: transform 500ms 100ms;
+}
+.active.plate1 .line2 {
+    stroke-dasharray: 5px 200;
+    stroke-dashoffset: -164px;
+}
+.active.plate1 .line3 {
+    stroke-dasharray: 5px 179;
+    stroke-dashoffset: -142px;
+}
+.active .x {
+    transform: scale(1);
+    transition: transform 400ms 350ms;
+}
+/* First Menu CSS Only end */
+
+/* Second Menu CSS Only */
+.plate2 .line1 {
+    stroke-dasharray: 21 185.62753295898438;
+    transition-delay: 0;
+}
+.plate2 .line2 {
+    stroke-dasharray: 21 178.6514129638672;
+    transition-delay: 30ms;
+}
+.plate2 .line3 {
+    stroke-dasharray: 21 197.92425537109375;
+    transition-delay: 60ms;
+}
+.plate2 .line4 {
+    stroke-dasharray: 21 190.6597137451172;
+    transition-delay: 90ms;
+}
+.plate2 .line5 {
+    stroke-dasharray: 21 208.52874755859375;
+    transition-delay: 120ms;
+}
+.plate2 .line6 {
+    stroke-dasharray: 21 186.59703063964844;
+    transition-delay: 150ms;
+}
+.active.plate2 .line1 {
+    stroke-dasharray: 5 185.62753295898438;
+    stroke-dashoffset: -155px;
+}
+.active.plate2 .line2 {
+    stroke-dasharray: 5 178.6514129638672;
+    stroke-dashoffset: -150px;
+}
+.active.plate2 .line3 {
+    stroke-dasharray: 5 197.92425537109375;
+    stroke-dashoffset: -190px;
+}
+.active.plate2 .line4 {
+    stroke-dasharray: 5 190.6597137451172;
+    stroke-dashoffset: -180px;
+}
+.active.plate2 .line5 {
+    stroke-dasharray: 5 208.52874755859375;
+    stroke-dashoffset: -160px;
+}
+.active.plate2 .line6 {
+    stroke-dasharray: 5 186.59703063964844;
+    stroke-dashoffset: -186px;
+}
+.active.plate2 .x {
+    transition: transform 400ms 250ms;
+}
+/* Second Menu CSS Only */
+
+/* section */
+.works {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 150px 0 126px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+}
+
+.works div {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 58px;
+}
+
+.works img {
+    width: 710px;
+    display: block;
+    margin: 0 auto;
+}
+
+.button {
+    width: 293px;
+    margin: 0 auto;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    margin-bottom: 58px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.works h3 {
+    font-size: 33px;
+    margin-bottom: 25px;
+}
+
+.classification {
+    width: 711px;
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 25px;
+    border-bottom: 5px solid gray;
+}
+
+.explain {
+    width: 600px;
+    margin: 25px 0 86px 0;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Contact */
+.callout {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 126px;
+    margin-bottom: 80px;
+    font-size: 31px;
+    letter-spacing: 0.2em;
+}
+
+.contactbutton {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: solid white;
+    text-align: center;
+    line-height: 320px;
+    font-size: 46px;
+    margin: 0 auto;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    margin: 0 1% 0 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+small {
+    writing-mode: vertical-rl;
+}
+
+.footer nav {
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+}
+
+.footer p {
+    padding-bottom: 40px;
+}
