@@ -103,64 +103,217 @@ header {
     max-width: 100%;
     margin: 0 1% 0 1%;
 }
-
+/* ヘッダー */
 .pc_nav {
+    margin-bottom: 19px;
     display: flex;
-    flex-direction: row;
-    justify-content: end;
     align-items: center;
+    justify-content: end;
+    gap: 20px;
 }
 
-.toggle_input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    opacity: 0;
+.pc_nav div {
+    font-size: 15px;
+    font-family: "minion-pro", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* トグルボタン */
+.toggle {
+    position: relative;
+    width: 90px;
+    height: 35px;
+    /* margin: 40px 60px; */
+    border-radius: 50px;
+    overflow: hidden;
+    user-select: none;
     cursor: pointer;
 }
 
-.toggle_label {
-    width: 75px;
-    height: 35px;
-    background: #ccc;
-    position: relative;
-    display: inline-block;
-    border-radius: 40px;
-    transition: 0.4s;
-    box-sizing: border-box;
+.toggle input[type="checkbox"] {
+    display: none;
 }
 
-.toggle_label:after {
+.toggle span {
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1;
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+}
+
+.toggle span:nth-of-type(1) {
+    right: 5px;
+    color: rgba(0, 0, 0, 0.175);
+}
+
+.toggle span:nth-of-type(2) {
+    left: 7px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.toggle:before {
     content: "";
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    display: block;
+    background: #e9e9eb;
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+}
+
+.toggle:after {
+    content: "";
+    position: absolute;
+    left: 3px;
     width: 35px;
     height: 35px;
-    border-radius: 100%;
-    left: 0;
-    top: 0;
-    z-index: 2;
+    display: block;
+    border-radius: 50px;
     background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    transition: 0.4s;
+    box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
 }
 
-.toggle_input:checked + .toggle_label {
-    background-color: #4bd865;
+.toggle.checked:before {
+    background: #35c759;
 }
 
-.toggle_input:checked + .toggle_label:after {
-    left: 40px;
+.toggle.checked:after {
+    left: 55px;
+    box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.5);
 }
 
-.toggle_button {
-    position: relative;
-    width: 75px;
-    height: 35px;
-    margin: auto;
+/* ハンバーガーメニュー */
+/* Common Css must add */
+svg {
+    height: 40px;
+    position: absolute;
+    width: 40px;
+    cursor: pointer;
+    /*   border: 1px solid black; */
+    background-color: #fff;
 }
+
+.plate {
+    height: 41px;
+    width: 41px;
+}
+.burger {
+    filter: url(#gooeyness);
+}
+.x {
+    transform: scale(0);
+    transition: transform 400ms;
+}
+.line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform-origin: 50%;
+    transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms,
+        transform 500ms 200ms;
+}
+.x .line {
+    stroke-width: 5.5px;
+}
+/* Common Css must add end */
+
+/* First Menu CSS Only */
+.plate1 .line2 {
+    stroke-dasharray: 40 200;
+    stroke-dashoffset: 0px;
+}
+.plate1 .line3 {
+    stroke-dasharray: 40 179;
+    stroke-dashoffset: 0px;
+}
+.active .line {
+    transition: stroke-dasharray 500ms, stroke-dashoffset 500ms, transform 500ms;
+}
+.active.plate1 .line1 {
+    transform: scale(0, 1);
+    transition: transform 500ms 100ms;
+}
+.active.plate1 .line2 {
+    stroke-dasharray: 5px 200;
+    stroke-dashoffset: -164px;
+}
+.active.plate1 .line3 {
+    stroke-dasharray: 5px 179;
+    stroke-dashoffset: -142px;
+}
+.active .x {
+    transform: scale(1);
+    transition: transform 400ms 350ms;
+}
+/* First Menu CSS Only end */
+
+/* Second Menu CSS Only */
+.plate2 .line1 {
+    stroke-dasharray: 21 185.62753295898438;
+    transition-delay: 0;
+}
+.plate2 .line2 {
+    stroke-dasharray: 21 178.6514129638672;
+    transition-delay: 30ms;
+}
+.plate2 .line3 {
+    stroke-dasharray: 21 197.92425537109375;
+    transition-delay: 60ms;
+}
+.plate2 .line4 {
+    stroke-dasharray: 21 190.6597137451172;
+    transition-delay: 90ms;
+}
+.plate2 .line5 {
+    stroke-dasharray: 21 208.52874755859375;
+    transition-delay: 120ms;
+}
+.plate2 .line6 {
+    stroke-dasharray: 21 186.59703063964844;
+    transition-delay: 150ms;
+}
+.active.plate2 .line1 {
+    stroke-dasharray: 5 185.62753295898438;
+    stroke-dashoffset: -155px;
+}
+.active.plate2 .line2 {
+    stroke-dasharray: 5 178.6514129638672;
+    stroke-dashoffset: -150px;
+}
+.active.plate2 .line3 {
+    stroke-dasharray: 5 197.92425537109375;
+    stroke-dashoffset: -190px;
+}
+.active.plate2 .line4 {
+    stroke-dasharray: 5 190.6597137451172;
+    stroke-dashoffset: -180px;
+}
+.active.plate2 .line5 {
+    stroke-dasharray: 5 208.52874755859375;
+    stroke-dashoffset: -160px;
+}
+.active.plate2 .line6 {
+    stroke-dasharray: 5 186.59703063964844;
+    stroke-dashoffset: -186px;
+}
+.active.plate2 .x {
+    transition: transform 400ms 250ms;
+}
+/* Second Menu CSS Only */
 
 .main_visual {
     margin: 180px 0 180px 0;
@@ -193,6 +346,28 @@ header {
     opacity: 0.3;
 }
 
+.marquee {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    gap: 1rem;
+    font-size: 156px;
+    opacity: 0.3;
+}
+
+.marquee-inner {
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        translate: 0;
+    }
+    100% {
+        translate: calc(-100% - 1rem);
+    }
+}
+
 .about_profile {
     display: flex;
     justify-content: center;
@@ -202,7 +377,6 @@ header {
 
 .picture {
     width: 41%;
-    background-color: #1b1464;
 }
 
 .profile {
@@ -218,7 +392,7 @@ header {
     margin-bottom: 32px;
     padding-bottom: 45px;
     font-size: 46px;
-    border-bottom: solid black;
+    border-bottom: solid white;
 }
 
 .profile dl {
@@ -264,16 +438,11 @@ header {
     padding-right: 12%;
 }
 
-.design img {
-    width: 51%;
-    padding: 0 21% 0 27%;
+.skills img {
+    height: 75px;
+    display: block;
+    margin: 0 auto;
     margin-bottom: 45px;
-}
-
-.cording img {
-    width: 37%;
-    margin-bottom: 45px;
-    padding: 0 28% 0 35%;
 }
 
 .skills_section h3 {
@@ -286,9 +455,11 @@ header {
 }
 
 .skills_section p {
-    margin-bottom: 37px;
+    /* height: 113px; */
+    /* margin-bottom: 37px; */
     font-size: 16px;
     line-height: 2;
+    min-height: 224px;
 }
 
 .tool {
@@ -306,10 +477,77 @@ header {
     margin: 0 auto;
     margin-bottom: 370px;
 }
+
+.container {
+    margin: 100px 0;
+}
+
+.slider {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.slider_item > div {
+    width: 400px;
+    margin-left: auto;
+}
+
+.slider_item img {
+    width: 400px;
+}
+
+.slider_item p {
+    font-size: 18px;
+    line-height: 1.7;
+    /* margin: 5px; */
+}
+
+.text {
+    margin-top: 24px;
+}
+
+/* ボタンの作成 */
+.slick-dots li {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: lightblue;
+}
+.slick-dots li.slick-active {
+    background: lightyellow;
+}
+.slick-dots li button {
+    width: 100%;
+    height: 100%;
+}
+.slick-dots li button:before {
+    content: attr(number);
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ボタンの位置調整 */
+.slick-dots {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    bottom: auto;
+    top: 0;
+}
+
+.slick-dots li:nth-child(2) {
+    margin-left: 100px;
+}
+/*
 .works li {
     display: flex;
 }
-
 .circle {
     width: 115px;
     height: 115px;
@@ -332,14 +570,14 @@ header {
 
 .worksexplain {
     font-size: 24px;
-}
+} */
 
 /* Contact */
 .callout {
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
-    margin-top: 156px;
+    margin-top: 126px;
     margin-bottom: 80px;
     font-size: 31px;
     letter-spacing: 0.2em;
@@ -369,7 +607,7 @@ small {
 }
 
 .footer nav {
-    margin: 0 80px 80px 0;
+    margin-right: 30px;
     display: flex;
     flex-direction: column;
     font-size: 36px;

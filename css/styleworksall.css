@@ -293,7 +293,13 @@ svg {
 
 .sel::before {
     position: absolute;
-    content: "\f063";
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-top: 5px solid white;
+    border-right: 5px solid white;
+    transform: rotate(135deg);
     font-family: "FontAwesome";
     font-size: 2em;
     color: #fff;
@@ -302,7 +308,7 @@ svg {
 }
 
 .sel.active::before {
-    transform: rotateX(-180deg);
+    transform: rotate(315deg);
 }
 
 .sel__placeholder {
@@ -435,7 +441,8 @@ svg {
 }
 
 .list img {
-    height: 200px;
+    max-width: initial;
+    height: 180px;
     display: flex;
     justify-content: center;
     margin: 0 auto;

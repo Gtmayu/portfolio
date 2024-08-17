@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/humberger.css">
     <title>humberger_banner</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         (function(d) {
@@ -16,7 +18,11 @@
           h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
         })(document);
       </script>
+      <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="slick/slick.min.js"></script>
 </head>
+
 <body>
     <nav class="pc_nav">
         <div>
@@ -44,14 +50,18 @@
     </nav>
 
     <section class="works">
-        <div>
+        <div class="slick">
             <img src="./img/bunner_humberger.png" alt="">
-            <!-- <img src="./img/bunner_humberger1200.png" alt=""> -->
+            <img src="./img/bunner_humberger1200.png" alt="">
         </div>
         <p class="button">Resize</p>
         <h3>コーヒーショップサイト制作</h3>
         <p class="classification">WEBデザイン／WEBコーディング</p>
         <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
+        <div class="single-item-rtl">
+          <div class="before">q</div>
+          <div class="after">r</div>
+        </div>
     </section>
 
     <section class="comtact"><a href="./contact.html"></a>
@@ -65,7 +75,7 @@
   <footer class="footer">
       <small>&copy;GOTO DESIGN</small>
       <nav>
-          <a href="about"><p>About</p></a>
+          <a href="index.html#about "><p>About</p></a>
           <a href="worksallr.html"><p>Works</p></a>
           <a href="contact.html"><p>Contact</p></a>
       </nav>
@@ -73,15 +83,16 @@
 
 
     <script>
-        $(".toggle").on("click", function() {
-  $(".toggle").toggleClass("checked");
-  if(!$('input[name="check"]').prop("checked")) {
+    $(".toggle").on("click", function() {
+    $(".toggle").toggleClass("checked");
+      if(!$('input[name="check"]').prop("checked")) {
     $(".toggle input").prop("checked", true);
-  } else {
-    $(".toggle input").prop("checked", false);
-  }
-});
+      } else {
+    $(".toggle input").prop("checked", false);}});
 
+    $('.single-item-rtl').slick({
+      rtl: true
+    });
     </script>
 </body>
 </html>

@@ -310,6 +310,17 @@ svg {
     line-height: 1.8;
 }
 
+.single-item-rtl {
+    width: 1000px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.before {
+    height: 30px;
+    background-color: black;
+}
+
 /* Contact */
 .callout {
     max-width: 1000px;
