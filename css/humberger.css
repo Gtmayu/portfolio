@@ -322,6 +322,20 @@ svg {
     background-color: black;
     color: white;
 }
+
+.slick-prev:before,
+.slick-next:before {
+    background-color: black;
+    color: white;
+    /* フォントファミリー入れる */
+}
+.slick-prev:before {
+    content: "back";
+}
+.slick-next:before {
+    content: "next";
+}
+
 /* Contact */
 .callout {
     max-width: 1000px;

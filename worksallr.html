@@ -59,10 +59,9 @@
         <h1>Works</h1>
         <div class="sel sel--black-panther">
             <select name="select-profession" id="select-profession">
-              <option value="" disabled>Works</option>
-              <option value="hacker">ALL</option>
-              <option value="gamer">BANNER</option>
-              <option value="developer">WEB SITE</option>
+              <option value="hacker" data-filter="all" class="is-active">ALL</option>
+              <option value="gamer" data-filter="banner">BANNER</option>
+              <option value="developer" data-filter="web">WEB SITE</option>
             </select>
         </div>
         <hr class="rule">
@@ -71,7 +70,7 @@
 
     <!-- 表 -->
     <section class="listup">
-      <div class="list">
+      <div class="list" data-item="banner">
         <a href="barger.html">
           <div >
           <img src="./img/bunner_humberger.png" alt="">
@@ -80,7 +79,7 @@
         <p class="title">ハンバーガーショップ <br>バナーデザイン</p>
         <p class="tag">#Banner design #Ai生成</p>
       </div>
-      <div class="list">
+      <div class="list" data-item="banner">
         <a href="travel">
           <div >
           <img src="./img/bunner_travel.png" alt="">
@@ -89,7 +88,7 @@
         <p class="title">旅行サイトアプリ <br>バナーデザイン</p>
         <p class="tag">#Banner design </p>
       </div>
-      <div class="list">
+      <div class="list" data-item="banner">
         <a href="phone">
           <div >
           <img src="./img/bunner_phone.png" alt="">
@@ -98,7 +97,7 @@
         <p class="title">携帯プラン<br>バナーデザイン</p>
         <p class="tag">#Banner design #Ai生成</p>
       </div>
-      <div class="list">
+      <div class="list" data-item="web">
         <a href="web">
           <div >
           <img src="./img/web_cafe.png" alt="">
@@ -107,7 +106,7 @@
         <p class="title">カフェサイト<br>ウェブデザイン</p>
         <p class="tag">#webdesign</p>
       </div>
-      <div class="list">
+      <div class="list" data-item="web">
         <a href="salon">
           <div >
           <img src="./img/web_salon.png" alt="">
@@ -116,7 +115,7 @@
         <p class="title">美容院サイト<br>ウェブデザイン</p>
         <p class="tag">#webdesign</p>
       </div>
-      <div class="list">
+      <div class="list" data-item="web">
         <a href="WORKERS">
           <div >
           <img src="./img/web_worker.png" alt="">
@@ -205,6 +204,18 @@ $('.sel__box__options').click(function() {
   $currentSel.children('.sel__placeholder').text(txt);
   $currentSel.children('select').prop('selectedIndex', index + 1);
 });
+
+$(function () {
+  var $filter=$('#select-profession [data-filter]')
+  var $item=$('.listup [data-item]')
+  console.log($filter)
+  console.log($item)
+  $filter.click(function (event){
+    event.preventDefault()
+    var $this=$(this)
+    console.log($this)
+  })
+})
 
 </script>
 </body>

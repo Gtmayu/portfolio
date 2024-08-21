@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/humberger.css">
     <title>humberger_banner</title>
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="./css/humberger.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         (function(d) {
@@ -20,7 +20,7 @@
       </script>
       <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
       <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-      <script type="text/javascript" src="slick/slick.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
 <body>
@@ -51,17 +51,30 @@
 
     <section class="works">
         <div class="slick">
+        <div>
             <img src="./img/bunner_humberger.png" alt="">
-            <!-- <img src="./img/bunner_humberger1200.png" alt=""> -->
-        </div>
+            <img src="./img/bunner_humberger1200.png" alt="">
+
         <p class="button">Resize</p>
-        <h3>コーヒーショップサイト制作</h3>
-        <p class="classification">WEBデザイン／WEBコーディング</p>
-        <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
+        <div >
+          <h3>コーヒーショップサイト制作</h3>
+          <p class="classification">WEBデザイン／WEBコーディング</p>
+          <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
+        </div>
+        </div>
+        <div>
+          <img src="./img/bunner_humberger.png" alt="">
+          <!-- <img src="./img/bunner_humberger1200.png" alt=""> -->
+
+      <p class="button">Resize</p>
+      <h3>スライド２枚目</h3>
+      <p class="classification">WEBデザイン／WEBコーディング</p>
+      <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
+    </div>
+      </div>
+
         <div class="single-item-rtl">
-          <input type="button" value="back" onclick="go_back()">
           <input type="button" value="ALL">
-          <input type="button" value="next" onclick="go_forward()">
         </div>
     </section>
 
@@ -91,9 +104,6 @@
       } else {
     $(".toggle input").prop("checked", false);}});
 
-    $('.single-item-rtl').slick({
-      rtl: true
-    });
 
     var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
     var num = 0;
@@ -117,6 +127,14 @@
         }
         document.getElementById("mypic").src=pics_src[num];
     }
+    $(".slick").slick()
+
+    $(function(){
+  $("a").click(function(){
+    $("img").attr("src","photo1.jpg");
+    return false;
+  });
+});
     </script>
 </body>
 </html>

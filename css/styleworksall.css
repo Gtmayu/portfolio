@@ -368,13 +368,13 @@ svg {
     user-select: none;
 }
 
-.sel__box__options::after {
+/* .sel__box__options::after {
     content: "\f00c";
     font-family: "FontAwesome";
     font-size: 0.5em;
     margin-left: 5px;
     display: none;
-}
+} */
 
 .sel__box__options.selected::after {
     display: inline;
