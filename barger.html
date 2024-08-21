@@ -52,15 +52,16 @@
     <section class="works">
         <div class="slick">
             <img src="./img/bunner_humberger.png" alt="">
-            <img src="./img/bunner_humberger1200.png" alt="">
+            <!-- <img src="./img/bunner_humberger1200.png" alt=""> -->
         </div>
         <p class="button">Resize</p>
         <h3>コーヒーショップサイト制作</h3>
         <p class="classification">WEBデザイン／WEBコーディング</p>
         <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
         <div class="single-item-rtl">
-          <div class="before">q</div>
-          <div class="after">r</div>
+          <input type="button" value="back" onclick="go_back()">
+          <input type="button" value="ALL">
+          <input type="button" value="next" onclick="go_forward()">
         </div>
     </section>
 
@@ -93,6 +94,29 @@
     $('.single-item-rtl').slick({
       rtl: true
     });
+
+    var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
+    var num = 0;
+
+    function go_forward(){
+        if (num == 2) {
+            num = 0;
+        }
+        else {
+            num ++;
+        }
+        document.getElementById("mypic").src=pics_src[num];
+    }
+
+    function go_back(){
+        if (num == 0) {
+            num = 2;
+        }
+        else {
+            num --;
+        }
+        document.getElementById("mypic").src=pics_src[num];
+    }
     </script>
 </body>
 </html>

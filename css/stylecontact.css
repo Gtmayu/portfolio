@@ -15,8 +15,7 @@ li {
     padding: 0;
     line-height: 1;
     color: black;
-    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
-        "Hiragino Kaku Gothic ProN", "Hiragino Sans";
+    font-family: "dnp-shuei-gothic-kin-std", "minion-pro";
     /* sans-serif dnp-shuei-gothic-gin-std Minion Variable Concept; */
 }
 
@@ -42,52 +41,109 @@ body {
 }
 
 /* コンタクト */
-.contact {
+section {
     width: 1000px;
-    height: 1000px;
     margin: 0 auto;
-    /* background-color: white;
-    opacity: 0.1;
-    border-radius: 40px; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+}
+
+.contact {
+    width: 100%;
+    margin: 0 auto;
 }
 
 h1 {
     width: 100%;
     text-align: center;
     margin: 120px 0 56px 0;
+    font-family: "minion-pro", serif;
+    font-weight: normal;
     font-size: 76px;
 }
 
-.contact p {
+p {
     text-align: center;
     margin-bottom: 56px;
     font-size: 22px;
     line-height: 1.8;
 }
 
-label {
-    width: 100%;
-    font-size: 22px;
-    padding-right: 20px;
+.c-form {
+    width: 1000px;
+    margin: 0 auto;
 }
 
-/* .contact dl {
+.c-form__item {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 
-.content dt {
-    font-size: 22px;
+.c-form__label,
+.c-form__input {
+    padding: 10px;
 }
 
-.contact dd {
-    width: 700px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-    font-size: 22px;
-    background-color: rgb(93, 102, 113);
-} */
+.c-form__label {
+    width: 90%;
+}
+
+.c-form__input {
+    width: 90%;
+    font-size: 16px;
+    border: solid 1px #333;
+    border-radius: 4px;
+}
+
+.c-form__input:focus-visible {
+    outline: green auto 1px;
+}
+
+.c-form__required {
+    color: #fff;
+    background-color: green;
+    border-radius: 4px;
+    padding: 5px 5px;
+    margin: 0 0 0 18px;
+}
+textarea.c-form__input {
+    height: 160px;
+}
+.c-form__submit {
+    text-align: center;
+}
+.c-form__submit button {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: green;
+    border: solid 1px green;
+    border-radius: 4px;
+    padding: 5px 32px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.c-form__submit button:hover {
+    color: green;
+    background-color: transparent;
+}
+
+@media (min-width: 640px) {
+    .c-form__item {
+        flex-wrap: nowrap;
+    }
+    .c-form__label {
+        width: 20%;
+    }
+    .c-form__input {
+        width: 50%;
+    }
+}

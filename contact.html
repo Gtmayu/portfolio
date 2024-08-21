@@ -5,24 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/stylecontact.css">
     <title>GOTODESIGN_Contact</title>
+    <script>
+        (function(d) {
+          var config = {
+            kitId: 'ndv3qab',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
 </head>
 
 <body>
-    <div class="contact">
-        <h1>Contact</h1>
-        <p>聞いてほしいこと、なんでもお問い合わせください <br>あなたのことおしえてください。待ってます。</p>
+    <section>
+        <div class="contact">
+            <h1>Contact</h1>
+        </div>
 
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLScJ4RsdaNHlZu0SVcL0zBKL-2vAPug2zIjB9ln6jLV5nmnH-A/viewform?embedded=true"></form>
-        <input
-    name="entry.690315515"
-    class="c-form__input"
-    id="field-name"
-    placeholder="株式会社 山田"
-    type="text"
-    required="required"
-/>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJ4RsdaNHlZu0SVcL0zBKL-2vAPug2zIjB9ln6jLV5nmnH-A/viewform?embedded=true" width="640" height="1002" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScJ4RsdaNHlZu0SVcL0zBKL-2vAPug2zIjB9ln6jLV5nmnH-A/formResponse"
+        method="post">
+            <!-- 802546925
+            1821473309 -->
+        </form>
 
+        <p style="text-align: center; margin: 40px auto">
+            聞いてほしいこと、なんでもお問い合わせください。 <br>あなたのことおしえてください。待ってます
+        </p>
+        <form class="c-form">
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-name"
+                    >お名前・会社名<span class="c-form__required">必須</span></label
+                >
+                <input
+                    class="c-form__input"
+                    id="field-name"
+                    placeholder="株式会社 山田"
+                    type="text"
+                    required="required"
+                />
+            </div>
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-mail"
+                    >メールアドレス<span class="c-form__required">必須</span></label
+                >
+                <input
+                    class="c-form__input"
+                    id="field-mail"
+                    placeholder="sample@gmail.com"
+                    type="email"
+                    required="required"
+                />
+            </div>
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-message">お問い合わせ</label>
+                <textarea
+                    class="c-form__input"
+                    id="field-message"
+                    placeholder="お気軽にご相談ください"
+                ></textarea>
+            </div>
+            <div class="c-form__submit">
+                <button type="submit">送信する</button>
+            </div>
+        </form>
+    </section>
 
 </body>
 </html>

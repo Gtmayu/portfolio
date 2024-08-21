@@ -311,16 +311,17 @@ svg {
 }
 
 .single-item-rtl {
-    width: 1000px;
     display: flex;
     margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.before {
-    height: 30px;
+.single-item-rtl input {
+    /* clip-path: polygon(100% 0, 0 50%, 100% 100%); */
     background-color: black;
+    color: white;
 }
-
 /* Contact */
 .callout {
     max-width: 1000px;
