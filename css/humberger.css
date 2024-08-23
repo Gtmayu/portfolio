@@ -45,18 +45,29 @@ body {
 }
 
 /* ヘッダー */
+header {
+    max-width: 100%;
+    margin: 0 1% 0 1%;
+}
+/* ヘッダー */
 .pc_nav {
     margin-bottom: 19px;
     display: flex;
     align-items: center;
     justify-content: end;
     gap: 20px;
+    position: fixed; /*← fixedで固定 */
+    width: 100%;
+    height: 60px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
 }
 
 .pc_nav div {
     font-size: 15px;
     font-family: "minion-pro", serif;
-    font-weight: 400;
     font-style: normal;
 }
 
@@ -140,10 +151,13 @@ body {
 svg {
     height: 40px;
     position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 2;
     width: 40px;
     cursor: pointer;
     /*   border: 1px solid black; */
-    background-color: #fff;
+    background-color: white;
 }
 
 .plate {
@@ -256,6 +270,36 @@ svg {
 }
 /* Second Menu CSS Only */
 
+.sp-nav {
+    display: none;
+}
+
+.sp-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.sp-nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.sp-nav li {
+    padding: 30px;
+    color: aliceblue;
+    font-family: "minion-pro", serif;
+    font-size: 50px;
+}
+
+/* ------------------------------------------- */
 /* section */
 .works {
     width: 1000px;
@@ -318,7 +362,10 @@ svg {
 }
 
 .single-item-rtl input {
-    /* clip-path: polygon(100% 0, 0 50%, 100% 100%); */
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    font-family: "zen-kaku-gothic-antique", sans-serif;
     background-color: black;
     color: white;
 }
@@ -327,6 +374,7 @@ svg {
 .slick-next:before {
     background-color: black;
     color: white;
+    font-family: "zen-kaku-gothic-antique", sans-serif;
     /* フォントファミリー入れる */
 }
 .slick-prev:before {
