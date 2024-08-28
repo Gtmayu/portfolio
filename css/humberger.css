@@ -321,6 +321,7 @@ svg {
     width: 100%;
     margin: 0 auto;
     margin-bottom: 58px;
+    text-align: center;
 }
 
 .works img {
@@ -346,8 +347,8 @@ svg {
 }
 
 .classification {
-    width: 711px;
     text-align: center;
+    align-items: center;
     font-size: 18px;
     padding-bottom: 25px;
     border-bottom: 5px solid gray;
@@ -355,7 +356,7 @@ svg {
 
 .explain {
     width: 600px;
-    margin: 25px 0 86px 0;
+    margin: 0 auto;
     font-size: 17px;
     line-height: 1.8;
 }
@@ -378,7 +379,7 @@ svg {
 
 .slick-prev:before,
 .slick-next:before {
-    top: 2000px;
+    top: 8000px;
     background-color: black;
     color: white;
     font-family: "zen-kaku-gothic-antique", sans-serif;
