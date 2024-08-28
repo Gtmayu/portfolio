@@ -16,10 +16,6 @@ li {
     line-height: 1;
     color: black;
     font-family: "dnp-shuei-gothic-kin-std", "minion-pro";
-    /* "游ゴシック体",
-        YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
-        "Hiragino Kaku Gothic ProN", "Hiragino Sans"; */
-    /* sans-serif dnp-shuei-gothic-gin-std Minion Variable Concept; */
 }
 
 a {
@@ -43,13 +39,12 @@ body {
     padding: 1%;
     background-color: #25716263;
 }
-
 /* ヘッダー */
 header {
     max-width: 100%;
     margin: 0 1% 0 1%;
 }
-/* ヘッダー */
+/* nav */
 .pc_nav {
     margin-bottom: 19px;
     display: flex;
@@ -59,9 +54,9 @@ header {
     position: fixed; /*← fixedで固定 */
     width: 100%;
     height: 60px;
-    padding: 20px 30px;
+    padding: 20px 90px;
     box-sizing: border-box;
-    top: 0;
+    top: 10px;
     left: 0;
 }
 
@@ -150,20 +145,25 @@ header {
 /* Common Css must add */
 svg {
     height: 40px;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    z-index: 2;
     width: 40px;
     cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
     /*   border: 1px solid black; */
-    background-color: white;
 }
 
 .plate {
     height: 41px;
     width: 41px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    background-image: url("../img/humberger-menu.png");
+    background-size: cover;
 }
+
 .burger {
     filter: url(#gooeyness);
 }
@@ -275,7 +275,7 @@ svg {
 }
 
 .sp-nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -299,6 +299,11 @@ svg {
     font-size: 50px;
 }
 
+@media screen and (max-width: 878px) {
+    .pc_nav div {
+        font-size: 15px;
+    }
+}
 /* ------------------------------------------- */
 /* section */
 .works {
@@ -329,6 +334,7 @@ svg {
     margin: 0 auto;
     padding-top: 19px;
     padding-bottom: 19px;
+    margin-top: 58px;
     margin-bottom: 58px;
     text-align: center;
     background-color: #fff;
@@ -372,10 +378,10 @@ svg {
 
 .slick-prev:before,
 .slick-next:before {
+    top: 2000px;
     background-color: black;
     color: white;
     font-family: "zen-kaku-gothic-antique", sans-serif;
-    /* フォントファミリー入れる */
 }
 .slick-prev:before {
     content: "back";
@@ -406,6 +412,23 @@ svg {
     margin: 0 auto;
 }
 
+@media screen and (max-width: 878px) {
+    .callout {
+        margin-top: 57px;
+        margin-bottom: 57px;
+        font-size: 13px;
+        writing-mode: vertical-rl;
+    }
+
+    .contactbutton {
+        width: 156px;
+        height: 156px;
+        line-height: 156px;
+        font-size: 24px;
+        margin: 0 auto;
+    }
+}
+
 /* footer */
 footer {
     width: 100%;
@@ -427,4 +450,24 @@ small {
 
 .footer p {
     padding-bottom: 40px;
+}
+
+@media screen and (max-width: 878px) {
+    footer {
+        width: 100%;
+        margin: 0 1% 0 1%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer nav {
+        margin-right: 30px;
+        display: flex;
+        flex-direction: column;
+        font-size: 32px;
+    }
+
+    .footer p {
+        padding-bottom: 30px;
+    }
 }
