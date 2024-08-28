@@ -379,7 +379,12 @@ svg {
 
 .slick-prev:before,
 .slick-next:before {
-    top: 8000px;
+    content: "";
+    display: block;
+    width: 50px;
+    height: 30px;
+    margin-top: 600px;
+    text-align: center;
     background-color: black;
     color: white;
     font-family: "zen-kaku-gothic-antique", sans-serif;
