@@ -306,7 +306,7 @@ svg {
 
 @media screen and (max-width: 878px) {
     .pc_nav div {
-        font-size: 15px;
+        font-size: 12px;
     }
 }
 /* --------     ワークス    --------------- */
@@ -314,6 +314,7 @@ svg {
     display: flex;
     align-items: end;
     justify-content: space-around;
+    margin-top: 150px;
     margin-bottom: 86px;
 }
 
@@ -327,6 +328,7 @@ svg {
 @media screen and (max-width: 878px) {
     .works {
         margin-top: 150px;
+        margin-bottom: 32px;
     }
     .works h1 {
         font-size: 60px;
@@ -347,6 +349,7 @@ svg {
     font-size: 15px;
     display: inline-block;
     width: 268px;
+    margin-left: 40%;
     margin-bottom: 10px;
     background-color: transparent;
     position: relative;
@@ -449,6 +452,7 @@ svg {
     .sel {
         font-size: 12px;
         width: 205px;
+        margin-left: 5%;
     }
     .sel::before {
         width: 15px;
@@ -462,7 +466,7 @@ svg {
 
 /* ----- Select Box Black Panther ----- */
 .sel {
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
 
 /* ----- Select Box Superman ----- */
@@ -498,7 +502,7 @@ svg {
 .listup {
     width: 88%;
     margin: 0 auto;
-    padding: 77px 5% 77px 5%;
+    padding: 77px 5%;
     display: flex;
     /* justify-content: space-around; */
     flex-wrap: wrap;
@@ -530,6 +534,31 @@ svg {
     font-size: 14px;
     display: flex;
     justify-content: end;
+}
+
+@media screen and (max-width: 878px) {
+    .listup {
+        padding: 40px 5%;
+        border-radius: 15px;
+    }
+
+    .list {
+        margin-bottom: 52px;
+    }
+
+    .list img {
+        height: 117px;
+        padding-bottom: 22px;
+    }
+
+    .title {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .tag {
+        font-size: 13px;
+    }
 }
 
 /* Contact */
@@ -597,7 +626,7 @@ small {
 @media screen and (max-width: 878px) {
     footer {
         width: 100%;
-        margin: 0 1% 0 1%;
+        margin: 40px 1% 0 1%;
         display: flex;
         justify-content: space-between;
     }

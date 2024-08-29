@@ -84,7 +84,7 @@
     <!-- 表 -->
     <section class="listup">
       <div class="list" data-item="banner" date-item="all">
-        <a href="barger.html">
+        <a href="burger.html">
           <div >
           <img src="./img/bunner_humberger.png" alt="">
           </div>
@@ -228,20 +228,11 @@ $('.sel__box__options').click(function() {
   $item.removeClass('all').fadeOut().promise().done(function () {
     $item.filter('[data-item = "' + $selectedValue + '"]').addClass('all').fadeIn()
     })
+    if($selectedValue==='all') {
+      $item.addClass('all').fadeIn()
+    }
   $currentSel.children('select').prop('selectedIndex', index + 1);
 });
-
-// $(function () {
-//   var $filter=$('#select-profession [data-filter]')
-//   var $item=$('.listup [data-item]')
-//   console.log($filter)
-//   console.log($item)
-//   $filter.click(function (event){
-//     event.preventDefault()
-//     var $this=$(this)
-//     console.log($this)
-//   })
-// })
 </script>
 </body>
 </html>

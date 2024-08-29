@@ -150,7 +150,6 @@ svg {
     position: absolute;
     top: 0;
     right: 0;
-    /*   border: 1px solid black; */
 }
 
 .plate {
@@ -301,13 +300,18 @@ svg {
 
 @media screen and (max-width: 878px) {
     .pc_nav div {
-        font-size: 15px;
+        font-size: 12px;
     }
 }
 /* ------------------------------------------- */
+h1 {
+    margin: 170px 0 76px 30px;
+    font-size: 104px;
+    font-family: "minion-pro", serif;
+}
+
 /* section */
 .works {
-    width: 1000px;
     margin: 0 auto;
     padding: 150px 0 126px 0;
     display: flex;
@@ -333,8 +337,7 @@ svg {
 .button {
     width: 293px;
     margin: 0 auto;
-    padding-top: 19px;
-    padding-bottom: 19px;
+    padding: 19px 0 19px 0;
     margin-top: 58px;
     margin-bottom: 58px;
     text-align: center;
@@ -349,8 +352,10 @@ svg {
 .classification {
     text-align: center;
     align-items: center;
-    font-size: 18px;
+    margin-left: 40px;
+    margin-right: 40px;
     padding-bottom: 25px;
+    font-size: 18px;
     border-bottom: 5px solid gray;
 }
 
@@ -358,6 +363,7 @@ svg {
     width: 600px;
     margin: 0 auto;
     font-size: 17px;
+    text-align: left;
     line-height: 1.8;
 }
 
@@ -382,18 +388,120 @@ svg {
     content: "";
     display: block;
     width: 50px;
-    height: 30px;
+    height: 50px;
     margin-top: 600px;
     text-align: center;
-    background-color: black;
-    color: white;
+    color: black;
     font-family: "zen-kaku-gothic-antique", sans-serif;
 }
+
 .slick-prev:before {
+    margin-left: 200px;
     content: "back";
+    background: black;
+    height: calc(tan(60deg) * 40px / 2);
+    width: 35px;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
 }
+
 .slick-next:before {
+    margin-right: 200px;
     content: "next";
+    background: black;
+    height: calc(tan(60deg) * 40px / 2);
+    width: 35px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.slick-next {
+    margin-right: 200px;
+    content: "next";
+}
+
+@media screen and (max-width: 878px) {
+    h1 {
+        margin: 60px 0 16px 15px;
+        font-size: 60px;
+    }
+
+    .works {
+        padding: 40px 0 0 0;
+        border-radius: 15px;
+    }
+
+    .works div {
+        margin-bottom: 24px;
+    }
+
+    .works img {
+        width: 211px;
+    }
+
+    .button {
+        width: 117px;
+        padding: 10px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    .works h3 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .classification {
+        padding-bottom: 16px;
+        font-size: 12px;
+        border-bottom: 1px solid gray;
+    }
+
+    .explain {
+        width: 400px;
+        padding-top: 16px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .single-item-rtl input {
+        width: 80px;
+        height: 40px;
+        text-align: center;
+        font-family: "zen-kaku-gothic-antique", sans-serif;
+        background-color: black;
+        color: white;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin-top: 210px;
+    }
+
+    .slick-prev:before {
+        margin-left: 200px;
+        content: "back";
+        background: black;
+        height: calc(tan(60deg) * 40px / 2);
+        width: 35px;
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    }
+
+    .slick-next:before {
+        margin-right: 200px;
+        content: "next";
+        background: black;
+        height: calc(tan(60deg) * 40px / 2);
+        width: 35px;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+
+    .slick-next {
+        margin-right: 200px;
+        content: "next";
+    }
 }
 
 /* Contact */
@@ -438,7 +546,7 @@ svg {
 /* footer */
 footer {
     width: 100%;
-    margin: 0 1% 0 1%;
+    margin: 0 1%;
     display: flex;
     justify-content: space-between;
 }
@@ -461,7 +569,7 @@ small {
 @media screen and (max-width: 878px) {
     footer {
         width: 100%;
-        margin: 0 1% 0 1%;
+        margin: 40px 1% 0 1%;
         display: flex;
         justify-content: space-between;
     }
