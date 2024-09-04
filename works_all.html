@@ -59,7 +59,7 @@
     <nav class="sp-nav">
       <ul>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="worksallr.html">Works</a></li>
+        <li><a href="works_all.html">Works</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -84,7 +84,7 @@
     <!-- 表 -->
     <section class="listup">
       <div class="list" data-item="banner" date-item="all">
-        <a href="burger.html">
+        <a href="works_burger.html">
           <div >
           <img src="./img/bunner_humberger.png" alt="">
           </div>
@@ -93,7 +93,7 @@
         <p class="tag">#Banner design #Ai生成</p>
       </div>
       <div class="list" data-item="banner">
-        <a href="travel">
+        <a href="works_travel.html">
           <div >
           <img src="./img/bunner_travel.png" alt="">
           </div>
@@ -102,16 +102,16 @@
         <p class="tag">#Banner design </p>
       </div>
       <div class="list" data-item="banner">
-        <a href="phone">
+        <a href="works_phone.html">
           <div >
           <img src="./img/bunner_phone.png" alt="">
           </div>
         </a>
         <p class="title">携帯プラン<br>バナーデザイン</p>
-        <p class="tag">#Banner design #Ai生成</p>
+        <p class="tag">#Banner design</p>
       </div>
       <div class="list" data-item="website">
-        <a href="web">
+        <a href="works_webcafe.html">
           <div >
           <img src="./img/web_cafe.png" alt="">
           </div>
@@ -120,7 +120,7 @@
         <p class="tag">#webdesign</p>
       </div>
       <div class="list" data-item="website">
-        <a href="salon">
+        <a href="works_websalon.html">
           <div >
           <img src="./img/web_salon.png" alt="">
           </div>
@@ -129,7 +129,7 @@
         <p class="tag">#webdesign</p>
       </div>
       <div class="list" data-item="website">
-        <a href="WORKERS">
+        <a href="works_webworkers.html">
           <div >
           <img src="./img/web_worker.png" alt="">
           </div>
@@ -152,7 +152,7 @@
       <small>&copy;GOTO DESIGN</small>
       <nav>
           <a href="index.html#about"><p>About</p></a>
-          <a href="worksallr.html"><p>Works</p></a>
+          <a href="works_all.html"><p>Works</p></a>
           <a href="contact.html"><p>Contact</p></a>
       </nav>
   </footer>
@@ -170,14 +170,18 @@
       $(".toggle input").prop("checked", false);
     }
   });
+</script>
 
+<script>
   // ハンバーガー
   $(function() {
     $('.plate').on('click', function() {
       $('.sp-nav').fadeToggle();
     })
     })
+</script>
 
+<script>
 /* ===== メニューバー===== */
 $('.sel').each(function() {
   $(this).children('select').css('display', 'none');

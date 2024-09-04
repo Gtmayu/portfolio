@@ -39,11 +39,15 @@ body {
     padding: 1%;
     background-color: #25716263;
 }
+
 /* ヘッダー */
 header {
     max-width: 100%;
     margin: 0 1% 0 1%;
+    position: relative;
+    z-index: 100;
 }
+
 /* nav */
 .pc_nav {
     margin-bottom: 19px;
@@ -313,7 +317,7 @@ h1 {
 /* section */
 .works {
     margin: 0 auto;
-    padding: 150px 0 126px 0;
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -324,7 +328,7 @@ h1 {
 .works div {
     width: 100%;
     margin: 0 auto;
-    margin-bottom: 58px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -352,8 +356,7 @@ h1 {
 .classification {
     text-align: center;
     align-items: center;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0 40px 25px 40px;
     padding-bottom: 25px;
     font-size: 18px;
     border-bottom: 5px solid gray;
@@ -367,55 +370,97 @@ h1 {
     line-height: 1.8;
 }
 
-.single-item-rtl {
+.all_button {
     display: flex;
     margin: 0 auto;
     align-items: center;
     justify-content: space-around;
 }
 
-.single-item-rtl input {
+.all_button input {
     width: 80px;
     height: 40px;
     text-align: center;
     font-family: "zen-kaku-gothic-antique", sans-serif;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
-.slick-prev:before,
-.slick-next:before {
+.slick-prev {
+    left: 200px;
+    z-index: 3;
+}
+
+.slick-next {
+    right: 200px;
+}
+
+.slick-prev,
+.slick-next {
+    top: 104%;
+    display: block;
+    display: flex;
+    width: auto;
+    height: auto;
+}
+
+.slick-prev::before,
+.slick-next::before {
     content: "";
     display: block;
     width: 50px;
     height: 50px;
-    margin-top: 600px;
     text-align: center;
     color: black;
     font-family: "zen-kaku-gothic-antique", sans-serif;
 }
 
-.slick-prev:before {
-    margin-left: 200px;
+.slick-prev::before {
     content: "back";
+    display: block;
     background: black;
     height: calc(tan(60deg) * 40px / 2);
     width: 35px;
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
 }
 
-.slick-next:before {
-    margin-right: 200px;
+.slick-prev::after {
+    content: "";
+    display: block;
+    background: black;
+    height: calc(tan(60deg) * 40px / 2);
+    width: 35px;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+
+.slick-next::before {
     content: "next";
+    display: block;
     background: black;
     height: calc(tan(60deg) * 40px / 2);
     width: 35px;
     clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
-.slick-next {
-    margin-right: 200px;
-    content: "next";
+.slick-next::after {
+    content: "";
+    display: block;
+    background: black;
+    height: calc(tan(60deg) * 40px / 2);
+    width: 35px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.slick-prev span,
+.slick-next span {
+    font-size: 18px;
+    line-height: 1;
+    color: black;
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translatex(-50%);
 }
 
 @media screen and (max-width: 878px) {
@@ -425,12 +470,11 @@ h1 {
     }
 
     .works {
-        padding: 40px 0 0 0;
         border-radius: 15px;
     }
 
     .works div {
-        margin-bottom: 24px;
+        margin-bottom: 0;
     }
 
     .works img {
@@ -450,57 +494,56 @@ h1 {
     }
 
     .classification {
+        margin: 0 40px 16px 40px;
         padding-bottom: 16px;
-        font-size: 12px;
-        border-bottom: 1px solid gray;
+        font-size: 14px;
+        border-bottom: 5px solid gray;
     }
 
     .explain {
-        width: 400px;
-        padding-top: 16px;
+        width: 70%;
+        padding-top: 0;
         font-size: 12px;
         line-height: 1.5;
     }
 
-    .single-item-rtl input {
-        width: 80px;
-        height: 40px;
-        text-align: center;
-        font-family: "zen-kaku-gothic-antique", sans-serif;
-        background-color: black;
-        color: white;
+    .all_button input {
+        width: 60px;
+        height: 30px;
     }
 
-    .slick-prev:before,
-    .slick-next:before {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 50px;
-        margin-top: 210px;
-    }
-
-    .slick-prev:before {
-        margin-left: 200px;
-        content: "back";
-        background: black;
-        height: calc(tan(60deg) * 40px / 2);
-        width: 35px;
-        clip-path: polygon(0 50%, 100% 0, 100% 100%);
-    }
-
-    .slick-next:before {
-        margin-right: 200px;
-        content: "next";
-        background: black;
-        height: calc(tan(60deg) * 40px / 2);
-        width: 35px;
-        clip-path: polygon(0 0, 100% 50%, 0 100%);
+    .slick-prev {
+        left: 50px;
+        z-index: 3;
     }
 
     .slick-next {
-        margin-right: 200px;
-        content: "next";
+        right: 50px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        top: 106%;
+    }
+
+    .slick-prev::before {
+        height: calc(tan(60deg) * 30px / 2);
+        width: 25px;
+    }
+
+    .slick-prev::after {
+        height: calc(tan(60deg) * 30px / 2);
+        width: 25px;
+    }
+
+    .slick-next::before {
+        height: calc(tan(60deg) * 30px / 2);
+        width: 25px;
+    }
+
+    .slick-next::after {
+        height: calc(tan(60deg) * 30px / 2);
+        width: 25px;
     }
 }
 

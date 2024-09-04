@@ -40,15 +40,39 @@ img {
 body {
     max-width: 1900px;
     margin: 0 auto;
-    background: linear-gradient(
-        45deg,
-        #58ccef,
-        /* #9844b7, */ #f2c076,
-        #1b1464,
-        /* #fff25b, */ #e17996
-    ); /*グラデーションを定義*/
-    background-size: 200% 200%; /*サイズを大きくひきのばす*/
-    animation: bggradient 20s ease infinite;
+    color: #ffffff;
+    font-weight: bold;
+    height: 98vh;
+    background: radial-gradient(at 0 0, #0079ff 0, transparent 50%),
+        radial-gradient(at 70% 30%, #00dfa2 0, transparent 40%),
+        radial-gradient(at 50% 100%, #fff25b 0, transparent 80%),
+        radial-gradient(at 50% 100%, #bfd45f 0, transparent 80%),
+        radial-gradient(at 50% 100%, #e17996 0, transparent 80%),
+        radial-gradient(at 10% 60%, #f2c076 0px, transparent 50%);
+    background-size: 1200% 1200%;
+    animation: GradientBackground 60s ease infinite;
+}
+
+@keyframes GradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* フェードインさせる要素 */
+.block {
+    opacity: 0; /* 最初は非表示にしておく */
+    transition: all 2s; /* 動きを滑らかに */
+}
+/* フェードイン用のクラス */
+.fadeIn {
+    opacity: 1;
 }
 
 /* loading */
@@ -92,6 +116,7 @@ body {
 }
 
 .loadingcollect {
+    padding-bottom: 215px;
     display: flex;
     justify-content: center;
     gap: 215px;
@@ -119,13 +144,9 @@ body {
     }
 
     .loadingcollect img {
-        width: 102px;
+        width: 100px;
         margin-bottom: 225px;
     }
-}
-
-.farst {
-    margin-bottom: 100px;
 }
 
 .main_sentense {
@@ -141,7 +162,7 @@ body {
 .scroll {
     position: absolute;
     right: 20px;
-    top: 700px;
+    top: 985px;
     writing-mode: vertical-rl;
 }
 /* 線のアニメーション部分 */
@@ -204,7 +225,9 @@ body {
 /* ヘッダー */
 header {
     max-width: 100%;
-    margin: 0 1% 0 1%;
+    margin: 0 1%;
+    position: relative;
+    z-index: 100;
 }
 /* nav */
 .pc_nav {
@@ -233,7 +256,6 @@ header {
     position: relative;
     width: 90px;
     height: 35px;
-    /* margin: 40px 60px; */
     border-radius: 50px;
     overflow: hidden;
     user-select: none;
@@ -601,7 +623,7 @@ svg {
 .question {
     font-size: 60px;
     font-weight: bold;
-    line-height: 1.7;
+    line-height: 2;
 }
 
 @media screen and (max-width: 878px) {
@@ -988,7 +1010,7 @@ small {
 @media screen and (max-width: 878px) {
     footer {
         width: 100%;
-        margin: 40px 1% 0 1%;
+        padding-top: 40px;
         display: flex;
         justify-content: space-between;
     }

@@ -48,7 +48,10 @@ body {
 header {
     max-width: 100%;
     margin: 0 1% 0 1%;
+    position: relative;
+    z-index: 100;
 }
+
 /* nav */
 .pc_nav {
     margin-bottom: 19px;
@@ -504,7 +507,6 @@ svg {
     margin: 0 auto;
     padding: 77px 5%;
     display: flex;
-    /* justify-content: space-around; */
     flex-wrap: wrap;
     background-color: rgba(255, 255, 255, 0.35);
     border-radius: 30px;

@@ -54,7 +54,7 @@
     <nav class="sp-nav">
       <ul>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="worksallr.html">Works</a></li>
+        <li><a href="works_all.html">Works</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -66,25 +66,35 @@
   <section class="works">
     <div class="slick">
       <div>
-        <img class="bunner" src="./img/bunner_humberger.png" alt="">
-        <a class="resize_btn" href="./img/bunner_humberger1200.png"><p class="button">Resize</p></a>
+        <img class="bunner" src="./img/bunner_phone.png" alt="">
+        <a class="resize_btn" href="./img/bunner_phone.png"><p class="button">Resize</p></a>
         <div >
-          <h3>ハンバーガーバナー</h3>
+          <h3>携帯プラン</h3>
           <p class="classification">バナーデザイン</p>
           <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
         </div>
       </div>
       <div>
-        <img class="bunner" src="./img/bunner_phone.png" alt="">
-        <a class="resize_btn" href="./img/bunner_phone.png"><p class="button">Resize</p></a>
+        <img class="bunner" src="./img/bunner_humberger.png" alt="">
+        <a class="resize_btn" href="./img/bunner_humberger1200.png"><p class="button">Resize</p></a>
         <div >
-          <h3>携帯サイトバナー</h3>
+            <h3>ハンバーガーバナー</h3>
+            <p class="classification">バナーデザイン</p>
+            <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
+        </div>
+      </div>
+      <div>
+        <img class="bunner" src="./img/bunner_travel.png" alt="">
+        <a class="resize_btn" href="./img/bunner_travel.png"><p class="button">NoResize</p></a>
+        <div >
+          <h3>旅行サイトアプリ</h3>
           <p class="classification">バナーデザイン</p>
           <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
+        </div>
       </div>
     </div>
-    <div class="single-item-rtl">
-      <a href="worksallr.html"><input type="button" value="ALL"></a>
+    <div class="all_button">
+    <a href="works_all.html"><input type="button" value="ALL"></a>
     </div>
   </section>
 
@@ -102,63 +112,74 @@
       <small>&copy;GOTO DESIGN</small>
       <nav>
           <a href="index.html#about "><p>About</p></a>
-          <a href="worksallr.html"><p>Works</p></a>
+          <a href="works_all.html"><p>Works</p></a>
           <a href="contact.html"><p>Contact</p></a>
       </nav>
   </footer>
 
 
   <script>
-      // トグルボタン
-      $(".toggle").on("click", function() {
-        $(".toggle").toggleClass("checked");
-        if(!$('input[name="check"]').prop("checked")) {
-          $(".toggle input").prop("checked", true);
-        } else {
-          $(".toggle input").prop("checked", false);
-        }
-      });
+    // トグルボタン
+    $(".toggle").on("click", function() {
+      $(".toggle").toggleClass("checked");
+      if(!$('input[name="check"]').prop("checked")) {
+        $(".toggle input").prop("checked", true);
+      } else {
+        $(".toggle input").prop("checked", false);
+      }
+    });
+    </script>
 
-      // ハンバーガー
-      $(function() {
+  <script>
+        // ハンバーガー
+    $(function() {
         $('.plate').on('click', function() {
-          $('.sp-nav').fadeToggle();
+            $('.sp-nav').fadeToggle();
         })
-        });
+    });
+  </script>
 
+  <script>　// back nextボタン
+    $('.slick-prev').append ('<span>back<span>')
+    $(function(){
+      $('.slick-prev').append('<span>back</span>')
+      $('.slick-next').append('<span>next</span>')
+    })
+  </script>
 
+  <script>
+        var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
+      var num = 0;
 
-    var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
-    var num = 0;
+      function go_forward(){
+          if (num == 2) {
+              num = 0;
+          }
+          else {
+              num ++;
+          }
+          document.getElementById("mypic").src=pics_src[num];
+      }
 
-    function go_forward(){
-        if (num == 2) {
-            num = 0;
-        }
-        else {
-            num ++;
-        }
-        document.getElementById("mypic").src=pics_src[num];
-    }
+      function go_back(){
+          if (num == 0) {
+              num = 2;
+          }
+          else {
+              num --;
+          }
+          document.getElementById("mypic").src=pics_src[num];
+      }
+      $(".slick").slick()
+  </script>
 
-    function go_back(){
-        if (num == 0) {
-            num = 2;
-        }
-        else {
-            num --;
-        }
-        document.getElementById("mypic").src=pics_src[num];
-    }
-    $(".slick").slick()
-
+  <script>
+    // 詳細スライド
     $(function(){
       let src = $('.bunner').attr('src')
       let resizeSrc = './img/bunner_humberger1200.png'
-
       $(".resize_btn").click(function(){
         let currentSrc = $('.bunner').attr('src')
-
         if (currentSrc === src) {
           $('.bunner').fadeOut(200, function() {
             $(this).attr('src', resizeSrc).on('load', function() {
@@ -174,7 +195,7 @@
         }
         return false;
       });
-});
-    </script>
+    });
+  </script>
 </body>
 </html>
