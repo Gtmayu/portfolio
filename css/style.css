@@ -16,10 +16,42 @@ li {
     line-height: 1;
     color: white;
     font-family: "dnp-shuei-gothic-kin-std", "minion-pro";
-    /* "游ゴシック体",
-        YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
-        "Hiragino Kaku Gothic ProN", "Hiragino Sans"; */
-    /* sans-serif dnp-shuei-gothic-gin-std Minion Variable Concept; */
+    transition: all 0.5s;
+}
+
+/* ダークモードの時(入れ子で書いてOK！) */
+body.dark_mode {
+    h1,
+    h2,
+    h3,
+    p,
+    dl,
+    dt,
+    dd,
+    ul,
+    li {
+        color: #f1f1f1;
+    }
+}
+
+body.dark_mode {
+    max-width: 1900px;
+    margin: 0 auto;
+    color: #f1f1f1;
+    font-weight: bold;
+    height: 950vh;
+    background-color: hsla(223, 8%, 10%, 1);
+    background-image: radial-gradient(
+            at 52% 69%,
+            hsla(229, 54%, 8%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 92% 9%, hsla(229, 54%, 8%, 1) 0px, transparent 50%),
+        radial-gradient(at 23% 86%, hsla(51, 100%, 8%, 1) 0px, transparent 50%),
+        radial-gradient(at 95% 92%, hsla(51, 100%, 8%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(344, 77%, 15%, 1) 0px, transparent 50%),
+        radial-gradient(at 54% 41%, hsla(344, 77%, 15%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(239, 100%, 17%, 1) 0px, transparent 50%);
 }
 
 a {
@@ -33,7 +65,6 @@ ul {
 
 img {
     max-width: 100%;
-    vertical-align: bottom;
     border: none;
 }
 
@@ -42,33 +73,18 @@ body {
     margin: 0 auto;
     color: #ffffff;
     font-weight: bold;
-    height: 98vh;
     background: radial-gradient(at 0 0, #0079ff 0, transparent 50%),
         radial-gradient(at 70% 30%, #00dfa2 0, transparent 40%),
         radial-gradient(at 50% 100%, #fff25b 0, transparent 80%),
         radial-gradient(at 50% 100%, #bfd45f 0, transparent 80%),
         radial-gradient(at 50% 100%, #e17996 0, transparent 80%),
         radial-gradient(at 10% 60%, #f2c076 0px, transparent 50%);
-    background-size: 1200% 1200%;
-    animation: GradientBackground 60s ease infinite;
-}
-
-@keyframes GradientBackground {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 /* フェードインさせる要素 */
 .block {
     opacity: 0; /* 最初は非表示にしておく */
-    transition: all 2s; /* 動きを滑らかに */
+    transition: all 1s; /* 動きを滑らかに */
 }
 /* フェードイン用のクラス */
 .fadeIn {
@@ -78,14 +94,82 @@ body {
 /* loading */
 .loading {
     width: 100%;
-    height: 100%;
-    /* position: fixed; */
+    height: 100vh;
     background-color: white;
+    opacity: 1;
+    position: relative;
+    z-index: 0;
+}
+
+.main_wrapper {
+    position: relative;
+    z-index: 100;
+}
+
+.loading.loaded {
+    opacity: 0;
+    display: none;
+}
+
+.happy_btn {
+    width: 205px;
+    height: 192px;
+    background-image: radial-gradient(
+            at 40% 20%,
+            hsla(28, 100%, 74%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+        radial-gradient(
+            at 64% 69%,
+            hsla(340, 100%, 76%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+        radial-gradient(
+            at 80% 100%,
+            hsla(242, 100%, 70%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+    border-radius: 50%;
+    position: relative;
+    transition: opacity 2s;
+}
+.happy_btn p,
+.chill_btn p {
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chill_btn {
+    width: 205px;
+    height: 192px;
+    background-color: rgb(10, 10, 56);
+    background-image: radial-gradient(
+            at 40% 20%,
+            hsl(278, 100%, 11%) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 80% 0%, hsl(239, 100%, 17%) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsl(344, 77%, 15%) 0px, transparent 50%),
+        radial-gradient(at 64% 69%, hsl(52, 100%, 8%) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsl(229, 54%, 8%) 0px, transparent 80%);
+    border-radius: 50%;
+    position: relative;
+    transition: opacity 2s;
 }
 
 .loading_sentense {
     padding: 30px 0 100px 50px;
     font-size: 18px;
+}
+
+.pre {
     color: black;
 }
 
@@ -119,7 +203,7 @@ body {
     padding-bottom: 215px;
     display: flex;
     justify-content: center;
-    gap: 215px;
+    gap: 10%;
 }
 
 .loadingcollect img {
@@ -147,6 +231,29 @@ body {
         width: 100px;
         margin-bottom: 225px;
     }
+
+    .happy_btn {
+        width: 108px;
+        height: 102px;
+    }
+
+    .happy_btn p,
+    .chill_btn p {
+        font-size: 18px;
+    }
+
+    .chill_btn {
+        width: 108px;
+        height: 102px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .loadingcollect {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .main_sentense {
@@ -162,7 +269,7 @@ body {
 .scroll {
     position: absolute;
     right: 20px;
-    top: 985px;
+    top: 60px;
     writing-mode: vertical-rl;
 }
 /* 線のアニメーション部分 */
@@ -199,7 +306,7 @@ body {
 }
 
 @media screen and (max-width: 878px) {
-    .farst {
+    .first {
         margin-bottom: 260px;
     }
 
@@ -212,7 +319,7 @@ body {
     /* スクロールダウンの位置 */
     .scroll {
         right: 20px;
-        top: 1000px;
+        top: 300px;
     }
     /* 線のアニメーション部分 */
     .scroll::before {
@@ -235,11 +342,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: end;
-    gap: 20px;
+    gap: 1%;
     position: fixed; /*← fixedで固定 */
     width: 100%;
     height: 60px;
-    padding: 20px 90px;
+    padding-right: 75px;
     box-sizing: border-box;
     top: 10px;
     left: 0;
@@ -269,8 +376,9 @@ header {
 .toggle span {
     position: absolute;
     text-align: center;
-    top: 13px;
     font-size: 15px;
+    top: 50%;
+    transform: translatey(-50%);
     font-weight: bold;
     line-height: 1;
     -webkit-transition: 0.2s ease-out;
@@ -278,12 +386,12 @@ header {
 }
 
 .toggle span:nth-of-type(1) {
-    right: 5px;
+    right: 8px;
     color: rgba(0, 0, 0, 0.175);
 }
 
 .toggle span:nth-of-type(2) {
-    left: 7px;
+    left: 11px;
     color: #fff;
     letter-spacing: 2px;
 }
@@ -298,26 +406,25 @@ header {
     border-radius: 50px;
     display: block;
     background: #e9e9eb;
-    -webkit-transition: 0.2s ease-out;
-    transition: 0.2s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
 }
 
 .toggle:after {
     content: "";
     position: absolute;
-    left: 3px;
     width: 35px;
     height: 35px;
     display: block;
     border-radius: 50px;
     background: #fff;
     box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.2s ease-out;
-    transition: 0.2s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
 }
 
 .toggle.checked:before {
-    background: #35c759;
+    background: #f1c70c;
 }
 
 .toggle.checked:after {
@@ -334,7 +441,6 @@ svg {
     position: absolute;
     top: 0;
     right: 0;
-    /*   border: 1px solid black; */
 }
 
 .plate {
@@ -502,11 +608,28 @@ svg {
 .goto_design {
     margin-top: 38px;
     font-size: 156px;
-    border-bottom: solid #1b1464;
+    position: relative;
     font-family: "minion-pro", serif;
     font-weight: 500;
 }
 
+.goto_design:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: solid 2px #1b1464;
+    animation: border_anim 2s linear forwards;
+}
+
+@keyframes border_anim {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
 .main {
     width: 363px;
     margin: 0 auto;
@@ -533,6 +656,7 @@ svg {
     }
 
     .main {
+        width: 100%;
         margin: 0 auto;
         padding-bottom: 135px;
         font-size: 15px;
@@ -567,7 +691,7 @@ svg {
 .about_profile {
     display: flex;
     justify-content: center;
-    margin: 30px 0 240px 0;
+    margin: 96px 0 240px 0;
     gap: 4%;
 }
 
@@ -621,6 +745,7 @@ svg {
 }
 
 .question {
+    padding-bottom: 60px;
     font-size: 60px;
     font-weight: bold;
     line-height: 2;
@@ -784,15 +909,77 @@ svg {
     max-width: 1000px;
     margin: 0 auto;
     margin-bottom: 370px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .works h2 {
     font-family: "minion-pro", serif;
     font-size: 197px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.works_circle {
+    width: 205px;
+    height: 192px;
+    /* 円の位置を画面中央に固定
+        position: fixed;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px); */
+    /*円の見た目を設定*/
+    transform: scale(1);
+    background-image: radial-gradient(
+            at 40% 20%,
+            hsla(28, 100%, 74%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+        radial-gradient(
+            at 64% 69%,
+            hsla(340, 100%, 76%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+        radial-gradient(
+            at 80% 100%,
+            hsla(242, 100%, 70%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+    border-radius: 50%;
 }
 
 .container {
     margin: 100px 0;
+}
+
+.works_more {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.works_more::after {
+    background-color: white;
+    bottom: -4px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform 0.4s;
+    width: 100%;
+}
+
+.works_more:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
 }
 
 .slider {
@@ -812,7 +999,6 @@ svg {
 .slider_item p {
     font-size: 18px;
     line-height: 1.7;
-    /* margin: 5px; */
 }
 
 .text {
@@ -860,7 +1046,7 @@ svg {
 
 @media screen and (max-width: 878px) {
     .works {
-        margin-bottom: 30px;
+        margin-bottom: 35px;
     }
 
     .works h2 {
@@ -872,12 +1058,12 @@ svg {
     }
 
     .slider_item > div {
-        width: 400px;
-        margin-left: auto;
+        width: 100%;
+        margin-left: 0;
     }
 
     .slider_item img {
-        width: 400px;
+        width: 100%;
     }
 
     .slider_item p {
@@ -887,61 +1073,11 @@ svg {
     .text {
         margin-top: 12px;
     }
-
-    /* ボタンの作成 */
-    .slick-dots li {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-
-    .slick-dots li button {
-        width: 100%;
-        height: 100%;
-    }
-
-    .slick-dots li button:before {
-        font-size: 18px;
-        align-items: center;
-    }
-
     /* ボタンの位置調整 */
-    .slick-dots {
-        flex-direction: row;
-    }
-
-    .slick-dots li:nth-child(2) {
-        margin-left: 100px;
+    .slick-dots li {
+        display: none;
     }
 }
-
-/*
-.works li {
-    display: flex;
-}
-.circle {
-    width: 115px;
-    height: 115px;
-    border-radius: 50%;
-    background-color: darkgreen;
-    text-align: center;
-    line-height: 115px;
-    font-size: 27px;
-}
-
-.workssection {
-    display: flex;
-    flex-direction: column;
-    margin-left: 292px;
-}
-
-.works img {
-    width: 500px;
-}
-
-.worksexplain {
-    font-size: 24px;
-} */
 
 /* Contact */
 .callout {

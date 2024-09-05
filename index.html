@@ -29,22 +29,27 @@
 
 <body>
   <div class="loading" id="main">
-      <p class="loading_sentense">Loading....</p>
+      <p class="loading_sentense pre">Loading....</p>
       <p class="how blur">いまの気分は？</p>
       <div class="loadingcollect blur">
           <div>
-              <img src="./img/loading_happy.png" alt="">
+              <div class="happy_btn">
+                <p>happy</p>
+              </div>
           </div>
           <div>
-              <img src="./img/loading_chill.png" alt="">
+            <div class="chill_btn">
+              <P>chill</P>
+            </div>
           </div>
       </div>
   </div>
 
-  <section class="farst">
+  <div class="main_wrapper">
+  <section class="first">
     <div>
       <p class="loading_sentense">Loading....</p>
-      <p class="main_sentense block fadeIn">あなたと一緒に、 <br>あなたらしさに <br>彩りを。</p>
+      <p class="main_sentense block ">あなたと一緒に、 <br>あなたらしさに <br>彩りを。</p>
     </div>
     <div class="scroll">
       <span>Scrolldown</span>
@@ -57,7 +62,7 @@
           DARK MODE
       </div>
       <div class="toggle">
-          <input type="checkbox" name="check" />
+          <input class="mode_toggle" type="checkbox" name="check" />
           <span>OFF</span>
           <span>ON</span>
       </div>
@@ -92,7 +97,7 @@
     <p class="content">Web design & <br>Cording</p>
     <p class="goto_design">GOTO  DESIGN</p>
   </div>
-  <div class="main fadein">
+  <div class="main block">
     何気ない日常でも <br>何かひとつのきっかけで <br>変わっていく。 <br>そのきっかけに <br>なるデザインを <br>あなたと一緒に。
   </div>
 
@@ -102,9 +107,9 @@
       <div class="marquee-inner">About About About</div>
       <div class="marquee-inner">About About About</div>
     </div>
-    <div class="about_profile" >
+    <div class="about_profile block">
       <div class="picture"><img src="./img/profile2.png" alt=""></div>
-      <div class="profile">
+      <div class="profile block">
         <h2>Profile</h2>
         <h3>GOTO MAYU</h3>
         <dl>
@@ -123,9 +128,9 @@
       </div>
     </div>
 
-    <div class="skills">
+    <div class="skills block">
       <h2>Skills</h2>
-      <div class ="skills_section">
+      <div class ="skills_section block">
         <div>
             <img src="./img/skills_Design.png" alt="">
         </div>
@@ -133,7 +138,7 @@
         <p>ヒアリングに基づいたプランに沿って、デザインを作成いたします。人の使うものであることを常に意識して、使う人が迷わない、目的を達成できるデザインを心がけています。</p>
         <p class="tool">［　使用ツール　］ <br>Adobe Illustrator <br>AdobePhotoshop </p>
       </div>
-      <div class ="skills_section">
+      <div class ="skills_section block">
         <div>
           <img src="./img/skills_Cording.png" alt="">
         </div>
@@ -145,8 +150,11 @@
   </section>
 
   <section class="works" id="works">
-    <h2>Works</h2>
-    <div class="container">
+    <div class="works_circle">
+      <h2>Works</h2>
+    </div>
+  </div>
+    <div class="container block">
       <div class="slider">
         <div class="slider_item">
           <div>
@@ -177,6 +185,9 @@
         </div>
       </div>
     </div>
+    <div class="works_more">
+      <a href="./works_all.html">もっとみる</a>
+    </div>
   </section>
 
 <!-- Contact -->
@@ -199,7 +210,7 @@
       <a href="contact.html"><p>Contact</p></a>
     </nav>
   </footer>
-
+</div>
 
 
   <script>// トグルボタン
@@ -207,8 +218,11 @@
         $(".toggle").toggleClass("checked");
         if(!$('input[name="check"]').prop("checked")) {
           $(".toggle input").prop("checked", true);
+          // bodyタグに
+          $('body').addClass('dark_mode');
         } else {
           $(".toggle input").prop("checked", false);
+          $('body').removeClass('dark_mode');
         }
       });
   </script>
@@ -232,6 +246,7 @@
         const wHeight = $(window).height();
         // スクロールした量を取得
         const wScroll = $(window).scrollTop();
+        console.log($('.block'))
             // それぞれのblockクラスに対して…
             $(".block").each(function () {
                 // それぞれのblockクラスのウィンドウからの高さを取得
@@ -261,8 +276,77 @@
         console.log(button)
         $(button).attr('number', '0' + (index + 1))
     })
+
+
+
+    // happyボタンがクリックされたら、コンテンツ部分まで自動でスクロール
+    //　（同様のことをchillの方でもできれば！）
+    $('.happy_btn').click(function() {
+      event.preventDefault()
+      var target = $('.first').offset().top
+      $('html,body').animate({scrollTop: target}, 1000, 'swing')
+
+      // ボタンがクリックされた際の、背景の動き
+      $(window).scroll(function () {
+          var scroll = $(this).scrollTop();
+          var sum = 1 + scroll / 50;
+          var wrapper = $('.first').offset().top
+          // スクロール量に応じて円の大きさを変える
+          $(".happy_btn").css({
+              "transform": "scale(" + sum + ")"
+          })
+
+          // コンテンツまでスクロールされたら、円をふわっと消す
+          if (scroll > wrapper) {
+            $(".happy_btn").css({"opacity": 0})
+          } else {
+            $(".happy_btn").css({"opacity": 1})
+          }
+        })
+      })
     })
   </script>
+  <script>
+    $('.chill_btn').click(function() {
+      event.preventDefault()
+      var target = $('.first').offset().top
+      $('html,body').animate({scrollTop: target}, 1000, 'swing')
+      $(window).scroll(function () {
+          var scroll = $(this).scrollTop();
+          var sum = 1 + scroll / 50;
+          var wrapper = $('.first').offset().top
+          $(".chill_btn").css({
+              "transform": "scale(" + sum + ")"
+          })
+          if (scroll > wrapper) {
+            $(".chill_btn").css({"opacity": 0})
+          } else {
+            $(".chill_btn").css({"opacity": 1})
+          }
+        })
+      })
+  </script>
 
+ <script>
+$(function () {
+    /* スクロール量　代入用 */
+    var scroll;
+    /* 円の大きさ+スクロール量　代入用 */
+    var sum;
+    $(window).scroll(function () {
+        /* スクロール量を取得 */
+        scroll = $(this).scrollTop();
+        /* コンソールログで確認  */
+        console.log(scroll);
+        /* 円の大きさ+スクロール量 / 50（調整）*/
+        sum = 1 + scroll / 50;
+        console.log(sum);
+        /* 円の大きさにスクロール量を足す */
+        $(".works_circle").css({
+            "transform": "scale(" + sum + ")"
+        })
+    })
+})
+ </script>
 </body>
 </html>

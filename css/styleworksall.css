@@ -136,8 +136,8 @@ header {
     border-radius: 50px;
     background: #fff;
     box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.2s ease-out;
-    transition: 0.2s ease-out;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
 }
 
 .toggle.checked:before {
