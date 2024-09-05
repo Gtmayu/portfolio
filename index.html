@@ -325,8 +325,17 @@
           }
         })
       })
-  </script>
 
+      $('.chill_btn').click(function(){
+    //「class="hoge"」が適用されていれば削除し、適用されていなければ追加する
+    $('body').toggleClass('darkmode');
+  });
+  </script>
+          $('body').addClass('dark_mode');
+        } else {
+          $(".toggle input").prop("checked", false);
+          $('body').removeClass('dark_mode');
+        }
  <script>
 $(function () {
     /* スクロール量　代入用 */
