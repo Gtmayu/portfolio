@@ -213,149 +213,175 @@
 </div>
 
 
-  <script>// トグルボタン
-      $(".toggle").on("click", function() {
-        $(".toggle").toggleClass("checked");
-        if(!$('input[name="check"]').prop("checked")) {
-          $(".toggle input").prop("checked", true);
-          // bodyタグに
-          $('body').addClass('dark_mode');
-        } else {
-          $(".toggle input").prop("checked", false);
-          $('body').removeClass('dark_mode');
-        }
-      });
-  </script>
-
-  <script>// ハンバーガー
-    $(function() {
-      $('.plate').on('click', function() {
-        $('.sp-nav').fadeToggle();
-      })
-      $('.sp-nav a').on('click', function() {
-        $('.sp-nav').fadeOut();
-      })
-      })
-  </script>
-
-  <script>// ふわっと動く
-    $(function () {
-    // ウィンドウをスクロールしたら…
-    $(window).scroll(function () {
-        // ウィンドウの高さを取得
-        const wHeight = $(window).height();
-        // スクロールした量を取得
-        const wScroll = $(window).scrollTop();
-        console.log($('.block'))
-            // それぞれのblockクラスに対して…
-            $(".block").each(function () {
-                // それぞれのblockクラスのウィンドウからの高さを取得
-                const bPosition = $(this).offset().top;
-                // スクロールした量が要素の高さを上回ったら
-                // その数値にウィンドウの高さを引き、最後に200pxを足す
-            if (wScroll > bPosition - wHeight + 200) {
-                $(this).addClass("fadeIn");
-            }
-          });
-      });
-    });
-  </script>
-
-  <script>
-    $(function () {
-    // スライダーの作成
-    $('.slider').slick({
-        fade: true, // フェードインで切り替える
-        swipe: false, //横にスワイプさせない = ボタンの選択のみで切り替え
-        dots: true,
-        arrows: false,
-    })
-
-    // ボタンに番号を振る
-    $('.slick-dots li button').each((index, button) => {
-        console.log(button)
-        $(button).attr('number', '0' + (index + 1))
-    })
-
-
-
-    // happyボタンがクリックされたら、コンテンツ部分まで自動でスクロール
-    //　（同様のことをchillの方でもできれば！）
-    $('.happy_btn').click(function() {
-      event.preventDefault()
-      var target = $('.first').offset().top
-      $('html,body').animate({scrollTop: target}, 1000, 'swing')
-
-      // ボタンがクリックされた際の、背景の動き
-      $(window).scroll(function () {
-          var scroll = $(this).scrollTop();
-          var sum = 1 + scroll / 50;
-          var wrapper = $('.first').offset().top
-          // スクロール量に応じて円の大きさを変える
-          $(".happy_btn").css({
-              "transform": "scale(" + sum + ")"
-          })
-
-          // コンテンツまでスクロールされたら、円をふわっと消す
-          if (scroll > wrapper) {
-            $(".happy_btn").css({"opacity": 0})
-          } else {
-            $(".happy_btn").css({"opacity": 1})
-          }
-        })
-      })
-    })
-  </script>
-  <script>
-    $('.chill_btn').click(function() {
-      event.preventDefault()
-      var target = $('.first').offset().top
-      $('html,body').animate({scrollTop: target}, 1000, 'swing')
-      $(window).scroll(function () {
-          var scroll = $(this).scrollTop();
-          var sum = 1 + scroll / 50;
-          var wrapper = $('.first').offset().top
-          $(".chill_btn").css({
-              "transform": "scale(" + sum + ")"
-          })
-          if (scroll > wrapper) {
-            $(".chill_btn").css({"opacity": 0})
-          } else {
-            $(".chill_btn").css({"opacity": 1})
-          }
-        })
-      })
-
-      $('.chill_btn').click(function(){
-    //「class="hoge"」が適用されていれば削除し、適用されていなければ追加する
-    $('body').toggleClass('darkmode');
+<script>// トグルボタン
+  $(".toggle").on("click", function() {
+    $(".toggle").toggleClass("checked");
+    if(!$('input[name="check"]').prop("checked")) {
+      $(".toggle input").prop("checked", true);
+      // bodyタグに
+      $('body').addClass('dark_mode');
+    } else {
+      $(".toggle input").prop("checked", false);
+      $('body').removeClass('dark_mode');
+    }
   });
-  </script>
-          $('body').addClass('dark_mode');
-        } else {
-          $(".toggle input").prop("checked", false);
-          $('body').removeClass('dark_mode');
-        }
- <script>
+</script>
+
+<script>// ハンバーガー
+$(function() {
+  $('.plate').on('click', function() {
+    $('.sp-nav').fadeToggle();
+  })
+  $('.sp-nav a').on('click', function() {
+    $('.sp-nav').fadeOut();
+  })
+  })
+</script>
+
+<script>// ふわっと動く
 $(function () {
-    /* スクロール量　代入用 */
-    var scroll;
-    /* 円の大きさ+スクロール量　代入用 */
-    var sum;
-    $(window).scroll(function () {
-        /* スクロール量を取得 */
-        scroll = $(this).scrollTop();
-        /* コンソールログで確認  */
-        console.log(scroll);
-        /* 円の大きさ+スクロール量 / 50（調整）*/
-        sum = 1 + scroll / 50;
-        console.log(sum);
-        /* 円の大きさにスクロール量を足す */
-        $(".works_circle").css({
-            "transform": "scale(" + sum + ")"
-        })
-    })
+// ウィンドウをスクロールしたら…
+$(window).scroll(function () {
+    // ウィンドウの高さを取得
+    const wHeight = $(window).height();
+    // スクロールした量を取得
+    const wScroll = $(window).scrollTop();
+    // console.log($('.block'))
+        // それぞれのblockクラスに対して…
+        $(".block").each(function () {
+            // それぞれのblockクラスのウィンドウからの高さを取得
+            const bPosition = $(this).offset().top;
+            // スクロールした量が要素の高さを上回ったら
+            // その数値にウィンドウの高さを引き、最後に200pxを足す
+        if (wScroll > bPosition - wHeight + 200) {
+            $(this).addClass("fadeIn");
+        }
+      });
+  });
+});
+</script>
+
+<script>
+$(function () {
+// スライダーの作成
+$('.slider').slick({
+    fade: true, // フェードインで切り替える
+    swipe: false, //横にスワイプさせない = ボタンの選択のみで切り替え
+    dots: true,
+    arrows: false,
 })
- </script>
+
+// ボタンに番号を振る
+$('.slick-dots li button').each((index, button) => {
+    // console.log(button)
+    $(button).attr('number', '0' + (index + 1))
+})
+
+
+
+// happyボタンがクリックされたら、コンテンツ部分まで自動でスクロール
+//　（同様のことをchillの方でもできれば！）
+$('.happy_btn').click(function() {
+  event.preventDefault()
+  var target = $('.first').offset().top
+  $('html,body').animate({scrollTop: target}, 1000, 'swing')
+
+  // ボタンがクリックされた際の、背景の動き
+  $(window).scroll(function () {
+      var scroll = $(this).scrollTop();
+      var sum = 1 + scroll / 50;
+      var wrapper = $('.first').offset().top
+      // スクロール量に応じて円の大きさを変える
+      $(".happy_btn").css({
+          "transform": "scale(" + sum + ")"
+      })
+
+      // コンテンツまでスクロールされたら、円をふわっと消す
+      if (scroll > wrapper) {
+        $(".happy_btn").css({"opacity": 0})
+      } else {
+        $(".happy_btn").css({"opacity": 1})
+      }
+    })
+  })
+})
+</script>
+<script>
+$('.chill_btn').click(function() {
+  event.preventDefault()
+  var target = $('.first').offset().top
+  $('html,body').animate({scrollTop: target}, 1000, 'swing')
+  $(window).scroll(function () {
+      var scroll = $(this).scrollTop();
+      var sum = 1 + scroll / 50;
+      var wrapper = $('.first').offset().top
+      $(".chill_btn").css({
+          "transform": "scale(" + sum + ")"
+      })
+      if (scroll > wrapper) {
+        $(".chill_btn").css({"opacity": 0})
+      } else {
+        $(".chill_btn").css({"opacity": 1})
+      }
+    })
+  })
+
+  $('.chill_btn').click(function(){
+    // ダークモードがまだ適用されてなかったら
+    if (!$("body").hasClass("dark_mode")) {
+      // ダークモードを適用
+      $('body').addClass('dark_mode');
+      // チェックボックスにチェックを入れる
+      $(".toggle input").prop("checked", true).change();
+      // トグルボタンの見た目を変える
+      $(".toggle").addClass('checked')
+    }
+});
+</script>
+<script>
+$(function () {
+/* スクロール量　代入用 */
+var scroll;
+/* 円の大きさ+スクロール量　代入用 */
+var sum;
+$(window).scroll(function () {
+    // 画面の半分の位置でスクロール量を取得
+    scroll = $(this).scrollTop() + $(this).height()/2
+    // works_circleの配置エリア
+    let works = $("#works").offset().top
+    // works_circleが表示されている部分からのスクロール量(scroll-works)を使用して、scaleの値を調整
+    sum = (1 + (scroll - works)/50)
+
+    // scroll量がworksを超えたら
+    if (scroll > works) {
+      // 円を大きく
+      $(".works_circle").css({
+          "transform": "scale(" + sum + ")"
+      })
+      // 見出しの文字を消す
+      if (scroll > works + 100) {
+        $(".works_circle h2").css({"display": "none"})
+      }
+    } else {
+      // worksより上にスクロールされたら、円のサイズを通常に
+      $(".works_circle").css({
+        "transform": "scale(1)"
+      })
+      // 見出しも見えるように
+      $(".works_circle h2").css({"display": "block"})
+    }
+
+    // worksのコンテンツエリアまでスクロールされたら
+    if (scroll > $(".container").offset().top + 100) {
+      // 円を消す
+      $(".works_circle").css({"opacity": 0})
+    } else {
+      // worksのコンテンツエリアより上にスクロールされたら、円を見せる
+      $(".works_circle").css({"opacity": 1})
+    }
+
+})
+})
+</script>
 </body>
 </html>

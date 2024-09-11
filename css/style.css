@@ -594,8 +594,6 @@ svg {
     }
 }
 
-/* ----------------------------------------------------------- */
-
 .main_visual {
     margin: 180px 0 180px 0;
 }
@@ -811,7 +809,7 @@ svg {
 .skills {
     display: flex;
     justify-content: center;
-    margin-bottom: 585px;
+    margin-bottom: 200px;
 }
 
 .skills h2 {
@@ -907,10 +905,14 @@ svg {
 .works {
     max-width: 1000px;
     margin: 0 auto;
-    margin-bottom: 325px;
+    margin-bottom: 400px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    /* 円を表示する範囲を作成 */
+    height: 100px;
+    /* 円の配置の基準にする */
+    position: relative;
 }
 
 .works h2 {
@@ -920,9 +922,15 @@ svg {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* 表示非表示をふわっとさせる */
+    transition: 0.5s;
 }
 
 .works_circle {
+    /* 円が大きくなった時に、画面を覆えるように浮かせる */
+    position: absolute;
+    /* 表示非表示をふわっとさせる（0.5秒かける） */
+    transition: 0.5s;
     width: 500px;
     height: 480px;
     transform: scale(1);
@@ -957,6 +965,7 @@ svg {
     display: inline-block;
     position: relative;
     left: 45%;
+    margin-bottom: 20px;
     transform: matrix(-50%);
     cursor: pointer;
 }

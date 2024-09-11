@@ -122,21 +122,47 @@
       $(".toggle").toggleClass("checked");
       if(!$('input[name="check"]').prop("checked")) {
         $(".toggle input").prop("checked", true);
+        // bodyタグに
+        $('body').addClass('dark_mode');
       } else {
         $(".toggle input").prop("checked", false);
+        $('body').removeClass('dark_mode');
       }
     });
   </script>
 
   <script>// ハンバーガー
-    $(function() {
-      $('.plate').on('click', function() {
-        $('.sp-nav').fadeToggle();
-      })
-      $('.sp-nav a').on('click', function() {
-        $('.sp-nav').fadeOut();
-      })
-      })
+  $(function() {
+    $('.plate').on('click', function() {
+      $('.sp-nav').fadeToggle();
+    })
+    $('.sp-nav a').on('click', function() {
+      $('.sp-nav').fadeOut();
+    })
+    })
+  </script>
+
+<script>// ふわっと動く
+  $(function () {
+  // ウィンドウをスクロールしたら…
+  $(window).scroll(function () {
+      // ウィンドウの高さを取得
+      const wHeight = $(window).height();
+      // スクロールした量を取得
+      const wScroll = $(window).scrollTop();
+      // console.log($('.block'))
+          // それぞれのblockクラスに対して…
+          $(".block").each(function () {
+              // それぞれのblockクラスのウィンドウからの高さを取得
+              const bPosition = $(this).offset().top;
+              // スクロールした量が要素の高さを上回ったら
+              // その数値にウィンドウの高さを引き、最後に200pxを足す
+          if (wScroll > bPosition - wHeight + 200) {
+              $(this).addClass("fadeIn");
+          }
+        });
+    });
+  });
   </script>
 
   <script>　// back nextボタン
