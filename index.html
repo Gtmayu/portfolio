@@ -290,13 +290,28 @@ $('.happy_btn').click(function() {
   $(window).off('scroll.chill_btn')
   var target = $('.first').offset().top
   $('html,body').animate({scrollTop: target}, 1000, 'swing')
+  $(window).on('scroll.happy_btn', function () {
+      var scroll = $(this).scrollTop();
+      var sum = 1 + scroll / 50;
+      var wrapper = $('.first').offset().top
+      if (sum > 20) return
+      $(".happy_btn").css({
+          "transform": "scale(" + sum + ")"
+      })
+      if (scroll > wrapper) {
+        $(".happy_btn").css({"opacity": 0})
+      } else {
+        $(".happy_btn").css({"opacity": 1})
+        $('.chill_btn').css({"opacity": 1})
+      }
+    })
   })
 
   $('.happy_btn').click(function(){
     if (!$('body').hasClass("light_mode")) {
       $('body').addClass('light_mode');
       $(".toggle input").attr("checked", false).change();
-      $(".toggle").addClass('')
+      $(".toggle").removeClass('checked')
     }
   })
 
@@ -348,7 +363,7 @@ $('.chill_btn').click(function() {
 
   $('.chill_btn').click(function(){
     // ダークモードがまだ適用されてなかったら
-    if (!$("body").hasClass("dark_mode")) {
+    if (!$("light_mode").hasClass("dark_mode")) {
       // ダークモードを適用
       $('body').addClass('dark_mode');
       // チェックボックスにチェックを入れる

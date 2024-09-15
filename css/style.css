@@ -30,7 +30,7 @@ body.dark_mode {
     dd,
     ul,
     li {
-        color: #f1f1f1;
+        margin: 0 auto;
     }
     .bg_wrapper {
         background-color: hsla(223, 8%, 10%, 1);
@@ -90,24 +90,16 @@ body.light_mode {
     dd,
     ul,
     li {
-        color: #f1f1f1;
+        margin: 0 auto;
     }
     .bg_wrapper {
         background-image: radial-gradient(
                 at 51% 97%,
-                hsla(218, 87%, 71%, 1) 0px,
+                hsl(197, 59%, 56%) 0px,
                 transparent 50%
             ),
-            radial-gradient(
-                at 34% 44%,
-                hsla(315, 68%, 65%, 1) 0px,
-                transparent 50%
-            ),
-            radial-gradient(
-                at 2% 44%,
-                hsla(88, 100%, 72%, 0.52) 0px,
-                transparent 50%
-            ),
+            radial-gradient(at 34% 44%, hsl(343, 82%, 70%) 0px, transparent 50%),
+            radial-gradient(at 2% 44%, hsl(71, 58%, 60%) 0px, transparent 50%),
             radial-gradient(
                 at 10% 61%,
                 hsla(314, 100%, 76%, 1) 0px,
@@ -124,7 +116,7 @@ body.light_mode {
                 transparent 50%
             ),
             radial-gradient(
-                at 80% 54%,
+                at 90% 54%,
                 hsla(28, 100%, 74%, 1) 0px,
                 transparent 50%
             ),
@@ -1056,6 +1048,7 @@ svg {
         line-height: 2;
     }
 }
+
 .works_circle_container {
     /* 円を表示する範囲を作成 */
     height: 100vh;
@@ -1072,9 +1065,10 @@ svg {
     align-items: center;
     flex-direction: column;
 }
+
 .works_circle h2 {
     font-family: "minion-pro", serif;
-    font-size: 197px;
+    font-size: 190px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1123,7 +1117,7 @@ svg {
     font-size: 23px;
     display: inline-block;
     position: relative;
-    left: 45%;
+    left: 36%;
     margin-bottom: 20px;
     transform: matrix(-50%);
     cursor: pointer;
@@ -1214,7 +1208,7 @@ svg {
         margin-bottom: 35px;
     }
 
-    .works h2 {
+    .works_circle h2 {
         font-size: 60px;
     }
 
@@ -1237,7 +1231,7 @@ svg {
     }
 
     .slider_item img {
-        width: 100%;
+        margin-left: 5%;
     }
 
     .slider_item p {
