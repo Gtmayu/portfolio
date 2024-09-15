@@ -46,6 +46,7 @@
   </div>
 
   <div class="main_wrapper">
+    <div class="bg_wrapper">
   <section class="first">
     <div>
       <p class="loading_sentense">Loading....</p>
@@ -148,12 +149,16 @@
       </div>
     </div>
   </section>
+  </div>
 
-  <section class="works" id="works">
+  <div class="works_circle_container">
     <div class="works_circle">
       <h2>Works</h2>
     </div>
   </div>
+
+  <div class="bg_wrapper">
+    <section class="works" id="works">
     <div class="container block">
       <div class="slider">
         <div class="slider_item">
@@ -210,6 +215,7 @@
       <a href="contact.html"><p>Contact</p></a>
     </nav>
   </footer>
+  </div>
 </div>
 
 
@@ -262,38 +268,49 @@ $(window).scroll(function () {
 </script>
 
 <script>
-$(function () {
-// スライダーの作成
-$('.slider').slick({
-    fade: true, // フェードインで切り替える
-    swipe: false, //横にスワイプさせない = ボタンの選択のみで切り替え
-    dots: true,
-    arrows: false,
-})
+  $(function () {
+    // スライダーの作成
+    $('.slider').slick({
+      fade: true, // フェードインで切り替える
+      swipe: false, //横にスワイプさせない = ボタンの選択のみで切り替え
+      dots: true,
+      arrows: false,
+    })
 
-// ボタンに番号を振る
-$('.slick-dots li button').each((index, button) => {
+    // ボタンに番号を振る
+    $('.slick-dots li button').each((index, button) => {
     // console.log(button)
-    $(button).attr('number', '0' + (index + 1))
-})
-
-
+      $(button).attr('number', '0' + (index + 1))
+    })
 
 // happyボタンがクリックされたら、コンテンツ部分まで自動でスクロール
 //　（同様のことをchillの方でもできれば！）
 $('.happy_btn').click(function() {
   event.preventDefault()
+  $(window).off('scroll.chill_btn')
   var target = $('.first').offset().top
   $('html,body').animate({scrollTop: target}, 1000, 'swing')
+  })
+
+  $('.happy_btn').click(function(){
+    if (!$('body').hasClass("light_mode")) {
+      $('body').addClass('light_mode');
+      $(".toggle input").attr("checked", false).change();
+      $(".toggle").addClass('')
+    }
+  })
 
   // ボタンがクリックされた際の、背景の動き
-  $(window).scroll(function () {
+  $(window).on('scroll.happy_btn', function () {
       var scroll = $(this).scrollTop();
       var sum = 1 + scroll / 50;
       var wrapper = $('.first').offset().top
+
+      if (sum > 20) return
+
       // スクロール量に応じて円の大きさを変える
       $(".happy_btn").css({
-          "transform": "scale(" + sum + ")"
+        "transform": "scale(" + sum + ")"
       })
 
       // コンテンツまでスクロールされたら、円をふわっと消す
@@ -303,18 +320,20 @@ $('.happy_btn').click(function() {
         $(".happy_btn").css({"opacity": 1})
       }
     })
-  })
 })
 </script>
+
 <script>
 $('.chill_btn').click(function() {
   event.preventDefault()
+  $(window).off('scroll.happy_btn')
   var target = $('.first').offset().top
   $('html,body').animate({scrollTop: target}, 1000, 'swing')
-  $(window).scroll(function () {
+  $(window).on('scroll.chill_btn', function () {
       var scroll = $(this).scrollTop();
       var sum = 1 + scroll / 50;
       var wrapper = $('.first').offset().top
+      if (sum > 20) return
       $(".chill_btn").css({
           "transform": "scale(" + sum + ")"
       })
@@ -322,6 +341,7 @@ $('.chill_btn').click(function() {
         $(".chill_btn").css({"opacity": 0})
       } else {
         $(".chill_btn").css({"opacity": 1})
+        $('.happy_btn').css({"opacity": 1})
       }
     })
   })
@@ -338,6 +358,7 @@ $('.chill_btn').click(function() {
     }
 });
 </script>
+
 <script>
 $(function () {
 /* スクロール量　代入用 */
@@ -348,31 +369,31 @@ $(window).scroll(function () {
     // 画面の半分の位置でスクロール量を取得
     scroll = $(this).scrollTop() + $(this).height()/2
     // works_circleの配置エリア
-    let works = $("#works").offset().top
+    let works = $(".works_circle_container").offset().top
     // works_circleが表示されている部分からのスクロール量(scroll-works)を使用して、scaleの値を調整
-    sum = (1 + (scroll - works)/50)
-
+    sum = (1 + (scroll - works)/90)
+    if (sum > 10) return
     // scroll量がworksを超えたら
-    if (scroll > works) {
+    if (scroll > works + 200) {
       // 円を大きく
       $(".works_circle").css({
-          "transform": "scale(" + sum + ")"
+          "transform": "translate(-50%, -50%) scale(" + sum + ")"
       })
       // 見出しの文字を消す
-      if (scroll > works + 100) {
+      if (scroll > works + 200) {
         $(".works_circle h2").css({"display": "none"})
       }
     } else {
       // worksより上にスクロールされたら、円のサイズを通常に
       $(".works_circle").css({
-        "transform": "scale(1)"
+        "transform": "translate(-50%, -50%) scale(1)"
       })
       // 見出しも見えるように
       $(".works_circle h2").css({"display": "block"})
     }
 
     // worksのコンテンツエリアまでスクロールされたら
-    if (scroll > $(".container").offset().top + 100) {
+    if (scroll > $("#works").offset().top - 100) {
       // 円を消す
       $(".works_circle").css({"opacity": 0})
     } else {

@@ -32,6 +32,44 @@ body.dark_mode {
     li {
         color: #f1f1f1;
     }
+    .bg_wrapper {
+        background-color: hsla(223, 8%, 10%, 1);
+        background-image: radial-gradient(
+                at 52% 69%,
+                hsla(229, 54%, 8%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 92% 9%,
+                hsla(229, 54%, 8%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 23% 86%,
+                hsla(51, 100%, 8%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 95% 92%,
+                hsla(51, 100%, 8%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 0% 100%,
+                hsla(344, 77%, 15%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 54% 41%,
+                hsla(344, 77%, 15%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 0% 0%,
+                hsla(239, 100%, 17%, 1) 0px,
+                transparent 50%
+            );
+    }
 }
 
 body.dark_mode {
@@ -39,18 +77,88 @@ body.dark_mode {
     margin: 0 auto;
     color: #f1f1f1;
     font-weight: bold;
-    background-color: hsla(223, 8%, 10%, 1);
-    background-image: radial-gradient(
-            at 52% 69%,
-            hsla(229, 54%, 8%, 1) 0px,
-            transparent 50%
-        ),
-        radial-gradient(at 92% 9%, hsla(229, 54%, 8%, 1) 0px, transparent 50%),
-        radial-gradient(at 23% 86%, hsla(51, 100%, 8%, 1) 0px, transparent 50%),
-        radial-gradient(at 95% 92%, hsla(51, 100%, 8%, 1) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, hsla(344, 77%, 15%, 1) 0px, transparent 50%),
-        radial-gradient(at 54% 41%, hsla(344, 77%, 15%, 1) 0px, transparent 50%),
-        radial-gradient(at 0% 0%, hsla(239, 100%, 17%, 1) 0px, transparent 50%);
+}
+
+/* ライトモード */
+body.light_mode {
+    h1,
+    h2,
+    h3,
+    p,
+    dl,
+    dt,
+    dd,
+    ul,
+    li {
+        color: #f1f1f1;
+    }
+    .bg_wrapper {
+        background-image: radial-gradient(
+                at 51% 97%,
+                hsla(218, 87%, 71%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 34% 44%,
+                hsla(315, 68%, 65%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 2% 44%,
+                hsla(88, 100%, 72%, 0.52) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 10% 61%,
+                hsla(314, 100%, 76%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 39% 28%,
+                hsla(343, 100%, 76%, 0.79) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 100% 31%,
+                hsla(240, 100%, 70%, 0.61) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 80% 54%,
+                hsla(28, 100%, 74%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 61% 12%,
+                hsla(189, 100%, 56%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 29% 80%,
+                hsla(355, 100%, 93%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 57% 61%,
+                hsla(340, 100%, 76%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 0% 100%,
+                hsla(22, 100%, 77%, 1) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 94% 96%,
+                hsla(240, 100%, 70%, 0.79) 0px,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 12% 17%,
+                hsla(343, 100%, 76%, 1) 0px,
+                transparent 50%
+            );
+    }
 }
 
 a {
@@ -72,14 +180,63 @@ body {
     margin: 0 auto;
     color: #ffffff;
     font-weight: bold;
-    background: radial-gradient(at 0 0, #0079ff 0, transparent 50%),
-        radial-gradient(at 70% 30%, #00dfa2 0, transparent 40%),
-        radial-gradient(at 50% 100%, #fff25b 0, transparent 80%),
-        radial-gradient(at 50% 100%, #bfd45f 0, transparent 80%),
-        radial-gradient(at 50% 100%, #e17996 0, transparent 80%),
-        radial-gradient(at 10% 60%, #f2c076 0px, transparent 50%);
 }
 
+.bg_wrapper {
+    background-image: radial-gradient(
+            at 51% 97%,
+            hsla(218, 87%, 71%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 34% 44%, hsla(315, 68%, 65%, 1) 0px, transparent 50%),
+        radial-gradient(
+            at 2% 44%,
+            hsla(88, 100%, 72%, 0.52) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 10% 61%,
+            hsla(314, 100%, 76%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 39% 28%,
+            hsla(343, 100%, 76%, 0.79) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 100% 31%,
+            hsla(240, 100%, 70%, 0.61) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 80% 54%, hsla(28, 100%, 74%, 1) 0px, transparent 50%),
+        radial-gradient(
+            at 61% 12%,
+            hsla(189, 100%, 56%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 29% 80%,
+            hsla(355, 100%, 93%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 57% 61%,
+            hsla(340, 100%, 76%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+        radial-gradient(
+            at 94% 96%,
+            hsla(240, 100%, 70%, 0.79) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 12% 17%,
+            hsla(343, 100%, 76%, 1) 0px,
+            transparent 50%
+        );
+}
 /* フェードインさせる要素 */
 .block {
     opacity: 0; /* 最初は非表示にしておく */
@@ -809,7 +966,6 @@ svg {
 .skills {
     display: flex;
     justify-content: center;
-    margin-bottom: 200px;
 }
 
 .skills h2 {
@@ -900,6 +1056,12 @@ svg {
         line-height: 2;
     }
 }
+.works_circle_container {
+    /* 円を表示する範囲を作成 */
+    height: 100vh;
+    /* 円の配置の基準にする */
+    position: relative;
+}
 
 /* works */
 .works {
@@ -909,13 +1071,8 @@ svg {
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* 円を表示する範囲を作成 */
-    height: 100px;
-    /* 円の配置の基準にする */
-    position: relative;
 }
-
-.works h2 {
+.works_circle h2 {
     font-family: "minion-pro", serif;
     font-size: 197px;
     position: absolute;
@@ -923,17 +1080,19 @@ svg {
     left: 50%;
     transform: translate(-50%, -50%);
     /* 表示非表示をふわっとさせる */
-    transition: 0.5s;
+    transition: 1s;
 }
 
 .works_circle {
     /* 円が大きくなった時に、画面を覆えるように浮かせる */
     position: absolute;
+    top: 50%;
+    left: 50%;
     /* 表示非表示をふわっとさせる（0.5秒かける） */
     transition: 0.5s;
     width: 500px;
     height: 480px;
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     background-image: radial-gradient(
             at 40% 20%,
             hsla(28, 100%, 74%, 1) 0px,
