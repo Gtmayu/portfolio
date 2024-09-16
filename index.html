@@ -94,7 +94,7 @@
     <!-- Second Menu end -->
   </header>
 
-  <div class="main_visual">
+  <div class="main_visual ">
     <p class="content">Web design & <br>Cording</p>
     <p class="goto_design">GOTO  DESIGN</p>
   </div>
@@ -311,8 +311,15 @@ $('.happy_btn').click(function() {
     if (!$('body').hasClass("light_mode")) {
       $('body').addClass('light_mode');
       $(".toggle input").attr("checked", false).change();
-      $(".toggle").removeClass('checked')
+      $(".toggle").removeClass('checked');
+      $('body').removeClass('dark_mode');//   → bodyからdark_modeクラスを削除する
     }
+    if(!$('body').hasClass("dark_mode")) {
+      $(".toggle input").attr("checked", false).change();
+      $(".toggle").removeClass('checked');
+      $('body').removeClass('light_mode');
+    }
+
   })
 
   // ボタンがクリックされた際の、背景の動き
@@ -358,6 +365,7 @@ $('.chill_btn').click(function() {
         $(".chill_btn").css({"opacity": 1})
         $('.happy_btn').css({"opacity": 1})
       }
+      $('body').removeClass('light_mode');//→ bodyからlight_modeクラスを削除する
     })
   })
 

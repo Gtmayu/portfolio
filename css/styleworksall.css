@@ -215,7 +215,7 @@ header {
 }
 
 .toggle.checked:before {
-    background: #f1c70c;
+    background-image: linear-gradient(45deg, #3498db, #9b59b6);
 }
 
 .toggle.checked:after {
