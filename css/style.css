@@ -163,6 +163,10 @@ body {
     font-weight: bold;
 }
 
+body > div {
+    overflow-x: clip;
+}
+
 .bg_wrapper {
     background-image: radial-gradient(
             at 51% 97%,
@@ -1049,7 +1053,7 @@ svg {
 .works {
     max-width: 1000px;
     margin: 0 auto;
-    margin-bottom: 400px;
+    padding-top: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1057,7 +1061,7 @@ svg {
 
 .works_circle h2 {
     font-family: "minion-pro", serif;
-    font-size: 190px;
+    font-size: 150px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1073,8 +1077,8 @@ svg {
     left: 50%;
     /* 表示非表示をふわっとさせる（0.5秒かける） */
     transition: 0.5s;
-    width: 500px;
-    height: 480px;
+    width: 400px;
+    height: 380px;
     transform: translate(-50%, -50%) scale(1);
     background-image: radial-gradient(
             at 40% 20%,
@@ -1211,15 +1215,19 @@ svg {
     }
 
     .container {
+        width: 100%;
         margin: 0 auto;
     }
 
-    .slider_item > div {
+    .slider {
         width: 100%;
-        margin-left: 0;
     }
 
-    .slider_item img {
+    .slider_item > div {
+        margin: 0 auto;
+    }
+
+    .slider_item {
         margin: 5%;
     }
 
@@ -1230,9 +1238,17 @@ svg {
     .text {
         margin-top: 12px;
     }
+
+    .slick-list {
+        width: 100%;
+    }
     /* ボタンの位置調整 */
     .slick-dots li {
         display: none;
+    }
+
+    .slick-dots li:nth-child(2) {
+        margin-left: none;
     }
 }
 

@@ -65,7 +65,7 @@
   <section class="works">
     <div class="slick">
       <div>
-        <img class="bunner" src="./img/bunner_humberger.png" alt="">
+        <img class="bunner" src="./img/bunner_humberger.png" alt="" data-src="./img/bunner_humberger.png">
         <a class="resize_btn" href="./img/bunner_humberger1200.png"><p class="button">Resize</p></a>
         <div >
             <h3>ハンバーガーバナー</h3>
@@ -74,7 +74,7 @@
         </div>
       </div>
       <div>
-        <img class="bunner" src="./img/bunner_travel.png" alt="">
+        <img class="bunner" src="./img/bunner_travel.png" alt="" data-src="./img/bunner_travel.png">
         <a class="resize_btn" href="./img/bunner_travel.png"><p class="button">NoResize</p></a>
         <div >
           <h3>旅行サイトアプリ</h3>
@@ -83,7 +83,7 @@
         </div>
       </div>
       <div>
-        <img class="bunner" src="./img/bunner_phone.png" alt="">
+        <img class="bunner" src="./img/bunner_phone.png" alt="" data-src="./img/bunner_phone.png">
         <a class="resize_btn" href="./img/bunner_phone.png"><p class="button">Resize</p></a>
         <div >
           <h3>携帯プラン</h3>
@@ -173,55 +173,65 @@
     })
   </script>
 
-  <script>
-      var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
-      var num = 0;
+<script>
+  var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
+  var num = 0;
 
-      function go_forward(){
-          if (num == 2) {
-              num = 0;
-          }
-          else {
-              num ++;
-          }
-          document.getElementById("mypic").src=pics_src[num];
+  function go_forward(){
+      if (num == 2) {
+          num = 0;
       }
-
-      function go_back(){
-          if (num == 0) {
-              num = 2;
-          }
-          else {
-              num --;
-          }
-          document.getElementById("mypic").src=pics_src[num];
+      else {
+          num ++;
       }
+      document.getElementById("mypic").src=pics_src[num];
+  }
 
-      $(".slick").slick()
+  function go_back(){
+      if (num == 0) {
+          num = 2;
+      }
+      else {
+          num --;
+      }
+      document.getElementById("mypic").src=pics_src[num];
+  }
 
-      $(function(){
-        let src = $('.bunner').attr('src')
-        let resizeSrc = './img/bunner_humberger1200.png'
+  $(".slick").slick()
 
-        $(".resize_btn").click(function(){
-          let currentSrc = $('.bunner').attr('src')
+  $(function(){
+    $(".resize_btn").click(function(){
+      let currentSlideIndex = $('.slick').slick('slickCurrentSlide');
 
-          if (currentSrc === src) {
-            $('.bunner').fadeOut(200, function() {
-              $(this).attr('src', resizeSrc).on('load', function() {
-                $(this).fadeIn()
-              })
-            })
-          } else {
-            $('.bunner').fadeOut(200, function() {
-              $(this).attr('src', src).on('load', function() {
-                $(this).fadeIn()
-              })
-            })
-          }
-          return false;
-        });
+      let $currentSlide = $('.slick .slick-slide[data-slick-index="' + currentSlideIndex + '"]');
+      let currentSrc = $currentSlide.find('.bunner').attr('src')
+      var src = $currentSlide.find('.bunner').attr('data-src');
+      let resizeSrc = $(this).attr('href')
+
+      if (currentSrc === src) {
+        $('.bunner').fadeOut(200, function() {
+          $(this).attr('src', resizeSrc).on('load', function() {
+            $(this).fadeIn()
+          })
+        })
+      } else {
+        $('.bunner').fadeOut(200, function() {
+          $(this).attr('src', src).on('load', function() {
+            $(this).fadeIn()
+          })
+        })
+      }
+      return false;
     });
-  </script>
+
+    $('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    // すべてのスライドの画像を元の画像に戻す
+    $('.slick .slick-slide').each(function() {
+        var src = $(this).find('.bunner').attr('data-src');
+        $(this).find('.bunner').attr('src', src);  // 元の画像にリセット
+    });
+});
+});
+</script>
 </body>
 </html>

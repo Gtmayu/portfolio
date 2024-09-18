@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>humberger_banner</title>
+    <title>dmeohumberger_banner</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <link rel="stylesheet" href="./css/burger.css">
@@ -62,18 +62,8 @@
   </header>
 
   <h1>Works</h1>
-
   <section class="works">
     <div class="slick">
-      <div>
-        <img class="bunner" src="./img/bunner_phone.png" alt="" data-src="./img/bunner_phone.png">
-        <a class="resize_btn" href="./img/bunner_phone.png"><p class="button">Resize</p></a>
-        <div >
-          <h3>携帯プラン</h3>
-          <p class="classification">バナーデザイン</p>
-          <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
-        </div>
-      </div>
       <div>
         <img class="bunner" src="./img/bunner_humberger.png" alt="" data-src="./img/bunner_humberger.png">
         <a class="resize_btn" href="./img/bunner_humberger1200.png"><p class="button">Resize</p></a>
@@ -92,9 +82,18 @@
           <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
         </div>
       </div>
+      <div>
+        <img class="bunner" src="./img/bunner_phone.png" alt="" data-src="./img/bunner_phone.png">
+        <a class="resize_btn" href="./img/bunner_phone.png"><p class="button">Resize</p></a>
+        <div >
+          <h3>携帯プラン</h3>
+          <p class="classification">バナーデザイン</p>
+          <p class="explain">文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。文章をここにいれていきます。</p>
+        </div>
+      </div>
     </div>
     <div class="all_button">
-    <a href="works_all.html"><input type="button" value="ALL"></a>
+    <a href="./works_all.html"><input type="button" value="ALL"></a>
     </div>
   </section>
 
@@ -132,13 +131,38 @@
     });
   </script>
 
-  <script>
-        // ハンバーガー
-    $(function() {
-        $('.plate').on('click', function() {
-            $('.sp-nav').fadeToggle();
-        })
+  <script>// ハンバーガー
+  $(function() {
+    $('.plate').on('click', function() {
+      $('.sp-nav').fadeToggle();
+    })
+    $('.sp-nav a').on('click', function() {
+      $('.sp-nav').fadeOut();
+    })
+    })
+  </script>
+
+<script>// ふわっと動く
+  $(function () {
+  // ウィンドウをスクロールしたら…
+  $(window).scroll(function () {
+      // ウィンドウの高さを取得
+      const wHeight = $(window).height();
+      // スクロールした量を取得
+      const wScroll = $(window).scrollTop();
+      // console.log($('.block'))
+          // それぞれのblockクラスに対して…
+          $(".block").each(function () {
+              // それぞれのblockクラスのウィンドウからの高さを取得
+              const bPosition = $(this).offset().top;
+              // スクロールした量が要素の高さを上回ったら
+              // その数値にウィンドウの高さを引き、最後に200pxを足す
+          if (wScroll > bPosition - wHeight + 200) {
+              $(this).addClass("fadeIn");
+          }
+        });
     });
+  });
   </script>
 
   <script>　// back nextボタン
@@ -149,65 +173,65 @@
     })
   </script>
 
-<script>
-  var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
-  var num = 0;
+  <script>
+      var pics_src = new Array("pics/1.jpg","pics/2.jpg","pics/3.jpg");
+      var num = 0;
 
-  function go_forward(){
-      if (num == 2) {
-          num = 0;
+      function go_forward(){
+          if (num == 2) {
+              num = 0;
+          }
+          else {
+              num ++;
+          }
+          document.getElementById("mypic").src=pics_src[num];
       }
-      else {
-          num ++;
+
+      function go_back(){
+          if (num == 0) {
+              num = 2;
+          }
+          else {
+              num --;
+          }
+          document.getElementById("mypic").src=pics_src[num];
       }
-      document.getElementById("mypic").src=pics_src[num];
-  }
 
-  function go_back(){
-      if (num == 0) {
-          num = 2;
-      }
-      else {
-          num --;
-      }
-      document.getElementById("mypic").src=pics_src[num];
-  }
+      $(".slick").slick()
 
-  $(".slick").slick()
+      $(function(){
+        $(".resize_btn").click(function(){
+          let currentSlideIndex = $('.slick').slick('slickCurrentSlide');
 
-  $(function(){
-    $(".resize_btn").click(function(){
-      let currentSlideIndex = $('.slick').slick('slickCurrentSlide');
+          let $currentSlide = $('.slick .slick-slide[data-slick-index="' + currentSlideIndex + '"]');
+          let currentSrc = $currentSlide.find('.bunner').attr('src')
+          var src = $currentSlide.find('.bunner').attr('data-src');
+          let resizeSrc = $(this).attr('href')
 
-      let $currentSlide = $('.slick .slick-slide[data-slick-index="' + currentSlideIndex + '"]');
-      let currentSrc = $currentSlide.find('.bunner').attr('src')
-      var src = $currentSlide.find('.bunner').attr('data-src');
-      let resizeSrc = $(this).attr('href')
+          if (currentSrc === src) {
+            $('.bunner').fadeOut(200, function() {
+              $(this).attr('src', resizeSrc).on('load', function() {
+                $(this).fadeIn()
+              })
+            })
+          } else {
+            $('.bunner').fadeOut(200, function() {
+              $(this).attr('src', src).on('load', function() {
+                $(this).fadeIn()
+              })
+            })
+          }
+          return false;
+        });
 
-      if (currentSrc === src) {
-        $('.bunner').fadeOut(200, function() {
-          $(this).attr('src', resizeSrc).on('load', function() {
-            $(this).fadeIn()
-          })
-        })
-      } else {
-        $('.bunner').fadeOut(200, function() {
-          $(this).attr('src', src).on('load', function() {
-            $(this).fadeIn()
-          })
-        })
-      }
-      return false;
+        $('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        // すべてのスライドの画像を元の画像に戻す
+        $('.slick .slick-slide').each(function() {
+            var src = $(this).find('.bunner').attr('data-src');
+            $(this).find('.bunner').attr('src', src);  // 元の画像にリセット
+        });
     });
-
-    $('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-    // すべてのスライドの画像を元の画像に戻す
-    $('.slick .slick-slide').each(function() {
-        var src = $(this).find('.bunner').attr('data-src');
-        $(this).find('.bunner').attr('src', src);  // 元の画像にリセット
     });
-});
-});
-</script>
+  </script>
 </body>
 </html>

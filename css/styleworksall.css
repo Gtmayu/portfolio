@@ -120,6 +120,16 @@ body {
         );
 }
 /* -------------------------------------- */
+/* フェードインさせる要素 */
+.block {
+    opacity: 0; /* 最初は非表示にしておく */
+    transition: all 1s; /* 動きを滑らかに */
+}
+/* フェードイン用のクラス */
+.fadeIn {
+    opacity: 1;
+}
+
 /* ヘッダー */
 header {
     max-width: 100%;
@@ -690,7 +700,8 @@ svg {
 /* footer */
 footer {
     width: 100%;
-    margin: 0 1%;
+    padding: 0 1%;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
 }
@@ -707,13 +718,14 @@ small {
 }
 
 .footer p {
+    font-family: "minion-pro", serif;
     padding-bottom: 40px;
 }
 
 @media screen and (max-width: 878px) {
     footer {
         width: 100%;
-        margin: 40px 1% 0 1%;
+        padding-top: 40px;
         display: flex;
         justify-content: space-between;
     }
